@@ -6,4 +6,5 @@ import com.aaa.entity.CourseBase;
 
 public interface CourseDAO {
 	public List<CourseBase> selectAllCourse();
+	public CourseBase getCourseBaseById(int id);
 }

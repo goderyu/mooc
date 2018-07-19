@@ -28,15 +28,15 @@
 	<div class="wrap">
 		<div class="top">
 			<div class="left">
-				<img src="${coursebase.courseImg}">
+				<img src="${coursebase.img}">
 			</div>
 			<div class="right">
 				<div>
-					<h1>${coursebase.courseName}</h1>
+					<h1>${coursebase.cname}</h1>
 				</div>
 				<div class="school-msg">
 					<div>学校：华北水利水电大学</div>
-					<div>${coursebase.courseIntroduce}</div>
+					<div>${coursebase.introduce}</div>
 				</div>
 				<div>
 					<div class="count">已有${coursebase.count}人报名</div>
@@ -67,7 +67,7 @@
 						<img src="img/course/coursems.png"><span
 							class="coursems-head">课程概述</span>
 						<div class="coursems-text" style="color:gray;">
-							${coursebase.courseSummary}</div>
+							${coursebase.summary}</div>
 					</div>
 					<div class="coursedg">
 						<img src="img/course/coursedg.png"><span
@@ -112,7 +112,7 @@
 		$(function(){
 		var id='${coursebase.id}';
 			$.ajax({
-			url:"/mooc/courseServlet?method=getFirstCatalogInfo",
+			url:"/mooc/CourseServlet?method=getFirstCatalogInfo",
 			type:"post",
 			data:{"id":id},
 			dataType:"json",
@@ -127,7 +127,7 @@
 				   //二级标题
 				       $.ajax({
 				          async:false,//取消异步操作
-				          url:"/mooc/courseServlet?method=getSecondCatalogInfo",
+				          url:"/mooc/CourseServlet?method=getSecondCatalogInfo",
 				          type:"post",
 			              data:{"id":data[i].id},
 			              dataType:"json",

@@ -13,5 +13,9 @@ public class CourseServiceImpl implements CourseService {
 	public List<CourseBase> selectAllCourse() {
 		return courseDAO.selectAllCourse();
 	}
+	@Override
+	public CourseBase getCourseBaseById(int id) {
+		return courseDAO.getCourseBaseById(id);
+	}
 
 }

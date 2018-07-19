@@ -165,24 +165,24 @@
 	
 	<div class="courselist" id="courselist">
 		<h1 style="padding-top:30px;color:#55b929;">课程列表</h1>
-		<c:forEach items="${list}" var="list">
+		<c:forEach items="${list}" var="item">
 			<div class="course-main">
 				<div class="computer-course">
 					<div class="course">
 						<div class="course-img">
-							<img src="${list.img}">
+							<img src="${item.img}">
 						</div>
 					</div>
 					<div class="course-text">
-						<div class="course-name">${list.cname}</div>
+						<div class="course-name">${item.cname}</div>
 						<div style="margin-top:30px;margin-left:10px;">
 							<span>华北水利水电大学</span> <img
 								style="margin-left: 60px;" src="img/course/count.png"> <span
-								style="margin-left:10px;">${list.count}</span>
+								style="margin-left:10px;">${item.count}</span>
 						</div>
-						<div style="margin-left:10px;">${list.introduce}</div>
-						<form action="/mooc/courseServlet?method=getOneCourseDetail" class="selectform" method="post">
-							<input type="hidden" name="id" value="${list.id}">
+						<div style="margin-left:10px;">${item.introduce}</div>
+						<form action="/mooc/CourseServlet?method=getOneCourseDetail" class="selectform" method="post">
+							<input type="hidden" name="id" value="${item.id}">
 						</form>
 					</div>
 				</div>

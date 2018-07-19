@@ -15,30 +15,24 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;// 数据库预操作对象
 	private ResultSet rs = null;
+
 	@Override
 	public List<CourseBase> selectAllCourse() {
-		List<CourseBase> list = new ArrayList<CourseBase>();
+		
 		String sql = "select id,cname,summary,img,count,introduce,teacherid,clickRate from coursebase";
-		conn=getConnection();
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()){
-				CourseBase course = new CourseBase();
-				course.setId(rs.getInt("id"));
-				course.setCname(rs.getString("cname"));
-				course.setSummary(rs.getString("summary"));
-				course.setImg(rs.getString("img"));
-				course.setCount(rs.getInt("count"));
-				course.setIntroduce(rs.getString("introduce"));
-				course.setTeacherid(rs.getInt("teacherid"));
-				course.setClickRate(rs.getInt("clickRate"));
-				list.add(course);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		List<CourseBase> list = search(sql, CourseBase.class, null);
 		return list;
+		
+	}
+
+	@Override
+	public CourseBase getCourseBaseById(int id) {
+		String sql = "select id,cname,summary,img,count,introduce,teacherid,clickRate from coursebase where id = ?";
+		
+		Object[] params = {id};
+		
+		List<CourseBase> list = search(sql, CourseBase.class, params);
+		return list.get(0);
 	}
 
 }
