@@ -39,9 +39,9 @@
 			<form id="formr" >
 				<ul>
 					<li><span class="dis">账号:</span> <input type="text"
-						name="userName" id="userName" class="input userName"
+						name="username" id="username" class="input username"
 						maxlength="24" placeholder="请输入用户名,3-12个字符"><span
-						class="userNameAlt" style="color:red"></span></li>
+						class="usernameAlt" style="color:red"></span></li>
 
 					<li><span class="dis">密码:</span> <input type="password"
 						name="password" id="password" class="input password"
@@ -85,11 +85,11 @@
 		var yzmTest = false;
 
 		/* 验证用户名格式是否正确，是否已存在  */
-		$(".userName").blur(function() {
+		$(".username").blur(function() {
 			var a = /^(?!(\d+)$)[\u4e00-\u9fffa-zA-Z\d\-_]{3,12}$/;
-			if (!a.test($(".userName").val())) {
+			if (!a.test($(".username").val())) {
 				nameTest = false;
-				$(".userNameAlt").html("格式错误，3-12个字符(不能含有特殊字符)");
+				$(".usernameAlt").html("格式错误，3-12个字符(不能含有特殊字符)");
 			} else {
 			       nameTest=true;
 			        return true;
@@ -201,7 +201,7 @@
 		});
 
 			function sub() {
-				$(".userName").blur();
+				$(".username").blur();
 				$(".password").blur();
 				$(".repassword").blur();
 				$(".telephone").blur();

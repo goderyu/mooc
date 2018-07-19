@@ -80,7 +80,7 @@
 				<hr style="color:#eee;">
 				<div class="teacher">
 					<span class="teacher-img"><img src="${teacherUser.headImg}">
-					</span> <span class="teacher-name">${teacherUser.userName}</span>
+					</span> <span class="teacher-name">${teacherUser.username}</span>
 				</div>
 			</div>
 		</div>

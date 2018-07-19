@@ -52,7 +52,7 @@ public class UserServlet extends HttpServlet {
 		String telephone = req.getParameter("telephone");
 		// 将从前端获取的表单数据封装在实体中
 		UserLoginInfo userLogin = new UserLoginInfo();
-		userLogin.setUserName(userName);
+		userLogin.setUsername(userName);
 		userLogin.setPassword(password);
 		userLogin.setTelephone(telephone);
 		// 定义业务逻辑对象，完成数据访问操作

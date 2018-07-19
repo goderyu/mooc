@@ -3,7 +3,7 @@ package com.aaa.entity;
 public class UserLoginInfo {
 	private int id;
 	private String headImg;// 头像
-	private String userName;// 用户名
+	private String username;// 用户名
 	private String telephone;// 电话
 	private String password;// 密码
 	private int state;// 标识
@@ -24,12 +24,12 @@ public class UserLoginInfo {
 		this.headImg = headImg;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getTelephone() {

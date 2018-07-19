@@ -47,7 +47,7 @@
 					<a href="register.jsp">注册</a>
 				</c:when>
 				<c:otherwise>
-					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${USER.userName}</a>
+					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${USER.username}</a>
 					|<a href="/mooc/before/login/loginout" style="cursor:pointer;">注销</a>
 				</c:otherwise>
 			</c:choose>
@@ -75,7 +75,7 @@
 						<a href="/mooc/views/before/register.jsp">注册</a>
 					</c:when>
 					<c:otherwise>
-						<a class="login" href="/mooc/before/index/person"style="cursor:pointer;">欢迎您：${user.userName}</a>
+						<a class="login" href="/mooc/before/index/person"style="cursor:pointer;">欢迎您：${user.username}</a>
 					|<a href="/mooc/UserServlet?method=quit" style="cursor:pointer;">注销</a>
 					</c:otherwise>
 				</c:choose>
@@ -147,7 +147,7 @@
 				<c:otherwise>
 					<div class="right-img">
 						<a href="/mooc/before/index/person"><img style="cursor:pointer;height:80px;width:80px;overflow:hidden;border-radius:80px;" src="${user.headImg}" ></a><br />
-						<a href="/mooc/before/index/person"><span class="loginUserName">${user.userName}</span>
+						<a href="/mooc/before/index/person"><span class="loginUserName">${user.username}</span>
 						</a>
 					</div>
 				</c:otherwise>

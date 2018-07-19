@@ -1,7 +1,5 @@
 package com.aaa.dao;
 
-import java.util.List;
-
 import com.aaa.entity.UserLoginInfo;
 
 /**
@@ -16,10 +14,12 @@ public interface UserDAO {
 	// 改
 	public int updateUserLoginInfo(UserLoginInfo user);
 
-	// 删
-	// public int deleteUserLoginInfo();
-	// 查
-	public List<UserLoginInfo> selectUserLoginInfo();
-	
-	public UserLoginInfo selectByTelAndPwd(String tel,String pwd);
+	/**
+	 * @param tel
+	 *            登录用户的手机号码
+	 * @param pwd
+	 *            登录用户的密码
+	 * @return 登录用户个人信息实体对象
+	 */
+	public UserLoginInfo selectByTelAndPwd(String tel, String pwd);
 }
