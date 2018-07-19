@@ -1,0 +1,83 @@
+.wrap {
+	margin-top: 50px; 
+	height : 700px;
+	background: url("/mooc/static/img/course/bg_addcourse.jpg") no-repeat;
+	background-color: #eee;
+}
+.wrap .addfh{
+	width:180px;
+	height:80px;
+	background-color:#4bbdb1;
+	color:white;
+	font-size:30px;
+	text-align: center;
+	padding-top:15px;
+	margin-left:300px;
+}
+.wrap .add-coursexx{
+	width:800px;
+	height:700px;
+	margin-left:300px;
+	background-color: white;
+}
+form{
+display:inline-block;	
+}
+.wrap .add-coursexx .coursefm{
+	display:inline-block;
+}
+.wrap .add-coursexx input{
+	width:275px;
+	height:37px;
+	padding-left:10px;
+	margin-left:30px;
+}
+.wrap .add-coursexx span{
+	display:inline-block;
+	margin-left:200px;
+	margin-top:50px;
+}
+.wrap .add-coursexx .nextbtn{
+	width:125px;
+	height:42px;
+	border:1px solid #eee;
+	margin-left:250px;
+	margin-top:70px;
+	background-color: #4bbdb1;
+	font-size: 18px;
+	color:white;
+}
+.wrap .add-coursexx .returnbtn{
+	width:125px;
+	height:42px;
+	font-size: 18px;
+	background-color:gray;
+	color:white;
+	border:1px solid #eee;
+}
+.coursefm-wrap {
+	display:inline-block;
+}
+.coursefm-wrap {
+	background-color: gray;
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+}
+
+#coursefm {
+	position: absolute;
+	margin-top: -5px;
+	margin-left:-1px;
+	width: 150px;
+	height: 150px;
+	/* 透明度 */
+	opacity: 0;
+	z-index: 20;
+	cursor: pointer;
+}
+
+#coursefm-text{
+	vertical-align: middle;
+	margin-right:30px;
+}

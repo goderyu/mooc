@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+.wrap{
+	margin-top:100px;
+	margin-left:50px;
+}
+.wrap .head span{
+		font-size:20px;
+		margin-right:20px;
+		padding-bottom: 7px;
+}
+.wrap .head .mycenter{
+	color: #55b929;
+	border-bottom: 3px solid #55b929;
+}
+.wrap .content{
+	line-height:70px;
+	margin-left:185px;
+}
+.content .file{
+	width: 100px;
+	height: 100px;
+	margin-top:-20px;
+	margin-left:141px;
+	opacity:0;
+	z-index:20;
+	border-radius:50%;
+	cursor:pointer; 
+}
+.content .img{
+	margin-left:140px;
+	margin-top:-100px;
+	cursor: pointer; 
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+.img img{
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+.content .plus{
+	line-height: 15px;
+	font-size: 30px;
+	color:black;
+	margin-top:47px;
+	margin-right:100px;
+}
+.content .input{
+	border:1px solid gray;
+	margin:0px 10px;
+	width:250px;
+	height:30px;
+}
+.content .list{
+	border:1px solid gray;
+	margin:0px 10px;
+	width:100px;
+	height:30px;
+}
+.content .intro{
+	border:1px solid gray;
+	margin-bottom:10px;
+}
+.content .button{
+	border:1px solid gray;
+	margin:20px 91px;
+	width:249px;
+	height:30px;
+	line-height:30px;
+	font-size:16px;
+	background-color:#55b929;
+}
+.hint-0{
+	margin-left:40px;
+}
+.hint{
+	margin-left:0px;
+}
+.nickname{
+	margin:0px 15px;
+}
+/* 老师密码修改 */
+.change-1{
+	background:white;
+	border:white;
+	margin:-205px 578px;
+	color:#55b929;
+	cursor:pointer; 
+}
+.update-1{
+	border:1px dashed gray;
+	background:#efefef;
+	height: 230px;
+	width:530px;
+	padding:20px 0px 20px 70px;
+	line-height: 50px;
+	margin: -155px -255px;
+	/* 修改样式 */
+	display:none;
+	position:fixed;
+	left:40%;
+	top:40%;
+}
+.update-1 .input-2{
+	border:1px solid gray;
+	height:30px;
+	width:200px;
+}
+.update-1 .password{
+	margin:0px 6px;
+}
+.update-1 .subm{
+	width:340px;
+	margin:0px 20px;
+	padding:0px 40px;
+}
+.update-1 .sub{
+	border:1px solid gray;
+	background:#55b929;
+	margin:35px 35px;
+	padding:5px 10px;
+	font-size:13px;
+	color:#0c0909;
+	text-decoration:none;
+}
+/* 学生密码的修改 */
+.change-2{
+	background:white;
+	border:white;
+	margin:-275px 578px;
+	color:#55b929;
+	cursor:pointer; 
+}
+
+
+
+
+
+
+

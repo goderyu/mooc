@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+
+.totalren {
+	position: absolute;
+	left: 49px;
+	top: 80px;
+}
+.debugging-top{
+	height:100px;
+}
+.debugging-bottom{
+	height:130px;
+}
+
+#courselist {
+	position:relative;
+	margin-top: 0px;
+	margin-left: 50px;
+	height: 170px;
+	width: 1000px;
+	background: #ffffff;
+	border-bottom:1px solid #e6e6e6;
+	margin-bottom:0px;
+}
+
+#courselist:hover {
+	background: #eeeeee;
+}
+
+.course-main .computer-course {
+	height: 150px;
+	margin-left: -515px;
+}
+
+.course-name {
+	position: absolute;
+	left: 268px;
+	top: 10px;
+	font-family: serif;
+}
+
+.course-name:hover {
+	color: #55b929;
+}
+
+.subInfo>span:hover {
+	color: #55b929;
+}
+
+.subIntroduction:hover {
+	color: #55b929;
+}
+
+.subInfo {
+	position: absolute;
+	left: 276px;
+	top: 46px;
+	color: #999999;
+}
+
+.subIntroduction {
+	position: absolute;
+	left: 276px;
+	top: 80px;
+	color: #666666;
+}
+
+.totalnumber {
+	position: absolute;
+	left: 276px;
+	top: 137px;
+	color: #999999;
+}

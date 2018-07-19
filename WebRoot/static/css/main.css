@@ -1,0 +1,414 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: auto;
+}
+
+/*滚动条的样式  */
+.main-scroll {
+	width: 100%;
+	height: 50px;
+	background-color: #2e323e;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+}
+
+.main-scroll>* {
+	float: left;
+	margin-top: 10px;
+}
+
+.main-scroll .main-scroll-search a {
+	text-decoration: none;
+	margin-left: 10px;
+	font-size: 12px;
+	color: white;
+}
+
+.main-scroll .main-scroll-search img {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.main-scroll .main-scroll-search input {
+	width: 258px;
+	height: 32px;
+	margin-left: 550px;
+	border: 1px solid #55b929;
+}
+
+.main-scroll .main-scroll-search button {
+	width: 36px;
+	height: 32px;
+	margin-left: -6px;
+	margin-top: -3px;
+	vertical-align: middle;
+	border: 0;
+	background-color: #55b929;
+	cursor: pointer;
+}
+
+.main-scroll .main-scroll-select a {
+	margin-left: 20px;
+	text-decoration: none;
+	color: white;
+}
+
+.main-scroll .main-scroll-search a:hover {
+	color: #55b929;
+}
+
+.main-scroll  .main-scroll-select a:hover {
+	color: #55b929;
+}
+/*内容顶部样式 */
+.main-navigation {
+	position: relative;
+	width: 1260px;
+	height: 106px;
+	margin: 0 auto;
+	border: 1px solid white;
+}
+
+.main-navigation .main-top {
+	height: 34px;
+	margin-top: 20px;
+	border: 1px solid white;
+}
+
+.main-navigation .main-top>* {
+	vertical-align: middle;
+}
+.loginUserName{
+	padding-top:20px;
+	display:inline-block;
+	font-size:25px;
+	color:#55b929;
+}
+.main-navigation .main-search {
+	position: absolute;
+	top: 22px;
+	left: 780px;
+}
+
+.main-navigation .main-search a {
+	text-decoration: none;
+	margin-left: 10px;
+	font-size: 12px;
+	color: black;
+}
+
+.main-navigation .main-search a:hover {
+	color: #55b929;
+}
+
+.main-navigation .main-search input {
+	padding-left:10px;
+	width: 258px;
+	height: 32px;
+	border: 1px solid #55b929;
+}
+
+.main-navigation .main-search button {
+	width: 36px;
+	height: 32px;
+	margin-left: -6px;
+	margin-top: -3px;
+	vertical-align: middle;
+	border: 0;
+	background-color: #55b929;
+	cursor: pointer;
+}
+
+.main-navigation .main-search .main-search-img img {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.main-navigation .main-top-select {
+	margin-top: 20px;
+}
+
+.main-navigation .main-top-select a {
+	margin-left: 35px;
+	text-decoration: none;
+	color: black;
+}
+
+.main-navigation .main-top-select a:hover {
+	color: #55b929;
+}
+
+.main-navigation .main-top-select .wangyiyun {
+	color: #55b929;
+	margin-left: 720px;
+}
+/*轮播图部分样式*/
+.main-lunbotu {
+	width: 100%;
+	height: 380px;
+}
+
+.main-lunbotu>div {
+	float: left;
+}
+
+.main-lunbotu .main-left-select {
+	width: 210px;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin-left: 3.5%;
+}
+
+.main-lunbotu .main-middle-lunbo {
+	width: 64%;
+	height: auto;
+	background-color: blue;
+}
+
+.main-lunbotu .main-left-select a img {
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
+	margin-left: 20%;
+}
+
+.main-lunbotu .main-left-select a {
+	display: block;
+	cursor: pointer;
+	padding: 6px 0 15px 0;
+}
+
+.main-lunbotu .main-left-select a>* {
+	padding: 0 10px;
+}
+
+.main-middle-lunbo .main-middle-image img {
+	width: 100%;
+	height: 100%;
+}
+
+.main-middle-lunbo .main-middle-image .image-hide {
+	display: none;
+}
+
+.main-middle-lunbo .main-lunbo-li .lunbo-point {
+	position: absolute;
+	top: 460px;;
+	left: 44%;
+}
+
+.main-middle-lunbo .main-lunbo-li .lunbo-point li {
+	list-style: none;
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin-left: 15px;
+	border-radius: 5px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.main-middle-lunbo .main-lunbo-li .lunbo-point .point {
+	background-color: #55b929;
+}
+
+.lunbo-twocricle {
+	display: none;
+}
+
+.lunbo-twocricle span {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#image {
+	cursor: pointer;
+}
+
+#image:hover .lunbo-twocricle {
+	display: inline-block;
+}
+
+.lunbo-twocricle .lunbo-leftcricle,.lunbo-rightcricle {
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top: 280px;
+}
+
+.lunbo-twocricle span {
+	line-height: 40px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+	font-weight: bolder;
+	font-size: 35px;
+	position: relative;
+	top: -4px;
+}
+
+.lunbo-twocricle .lunbo-leftcricle:hover span {
+	color: white;
+}
+
+.lunbo-twocricle .lunbo-rightcricle:hover span {
+	color: white;
+}
+
+.lunbo-twocricle .lunbo-leftcricle {
+	left: 270px;;
+}
+
+.lunbo-twocricle .lunbo-rightcricle {
+	left: 1070;
+}
+/* 轮播图右边个人信息部分*/
+.main-lunbotu .main-right-person {
+	width: 210px;;
+	height: 280px;
+	margin-top: 50px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.main-lunbotu .main-right-person>div {
+	margin-top: 20px;
+}
+
+.main-lunbotu .main-right-person .right-text {
+	text-align: center;
+	color: #333333;;
+}
+
+.main-lunbotu .main-right-person .right-img {
+	text-align: center;
+}
+
+.main-lunbotu .main-right-person .right-img button {
+	width: 160px;
+	height: 36px;
+	margin-top: 20px;
+	border: 0;
+	color: white;
+	font-size: 16px;
+	background-color: #55b929;
+	cursor: pointer;
+	background-color: #55b929;
+}
+
+.main-lunbotu .main-right-person .right-downtext {
+	color: gray;
+	font-size: 12px;
+	text-align: center;
+}
+/*大学列表*/
+.main-college {
+	width: 100%;
+	height: 60px;
+}
+.courselist{
+	margin-top:10px;
+	background-color:#eeeeee;
+}
+.main-college span {
+	vertical-align: middle;
+	margin-left: 90px;
+	display: inline-block;
+	padding: 20px 0;
+}
+
+.main-college a {
+	text-decoration: none;
+	color: #55b929;
+}
+
+.main-college span a img {
+	width: 110px;
+	height: 32px;
+}
+
+/*响应式*/
+@media screen and (max-width:1350px) {
+	body {
+		width: 1350px;
+	}
+}
+/*课程介绍*/
+.course-main .computer-course {
+	width: 260px;
+	height: 270px;
+}
+.course-main{
+	background-color:white;
+}
+.course-main a {
+	text-decoration: none;
+	color: black;
+	font-weight: bolder;
+	font-size: 30px;
+	margin: 20px 40px;
+}
+
+.course-main .computer-course .course .course-img {
+	width: 260px;
+	height: 135px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.course-main .computer-course .course .course-img img{
+	width:260px;
+}
+.course-main .computer-course .course .course-img:hover img {
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.2);
+}
+.course-main >*{
+	cursor: pointer;
+}
+
+.course-main .computer-course .course .course-img img{
+	-moz-transition: all 0.5s cubic-bezier(0, 0.5, 0.5, 1) 0s;/*火狐*/
+	-o-transition: all 0.3s cubic-bezier(0, 0.5, 0.5, 1) 0s;
+	-webkit-transition: all 0.3s cubic-bezier(0, 0.5, 0.5, 1) 0s;
+	transition: all 0.5s cubic-bezier(0, 0.5, 0.5, 1) 0s;
+}
+#courselist{
+	text-align: center;
+	height:auto;
+	margin-bottom: 30px;
+}
+.course-main{
+	height:auto;
+	margin-top:20px;
+	margin-left:30px;
+	margin-bottom:20px;
+	vertical-align:middle;
+	display:inline-block;
+}
+.course-text>*{
+	text-align: left;
+	color:gray;
+}
+.course-text .course-name{
+	font-weight: bolder;
+	font-size: 18px;
+	margin-top:7px;
+	margin-left:7px;
+	color:black;
+}

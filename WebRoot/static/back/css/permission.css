@@ -1,0 +1,10 @@
+.xspan{
+	margin-right:20px;
+	cursor:pointer;
+	padding:3px;
+	font-size:16px;
+}
+.xspan:hover{
+	background-color:#FF5722;
+	color:white;
+}

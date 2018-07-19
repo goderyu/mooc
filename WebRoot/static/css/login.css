@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: auto;
+}
+
+
+/*登录窗口*/
+.main-login {
+	padding-top:120px;
+	width: 100%;
+	height: auto;
+	padding-bottom:120px;
+	background: #eeeeee url(/mooc/static/img/bg-login.gif) no-repeat left bottom;
+}
+#loginmsg{
+	margin:10px 0 20px 152px;
+}
+.main-login-window {
+	width: 650px;
+	height: 430px;
+	margin-left:570px;
+	background-color: white;
+	border: 1px solid #d4d4d4;
+}
+
+
+
+.main-login .login-text span {
+	display: inline-block;
+	margin-left: 150px;
+	padding-bottom: 20px;
+	font-size: 20px;
+	border-bottom: 5px solid #55b929;
+	color: #55b929;
+}
+
+.main-login .main-login-mes span {
+	margin-top: 35px;
+	margin-left: 130px;
+	display: block;
+}
+
+.main-login .main-login-mes input {
+	width: 340px;
+	height: 45px;
+	padding-left: 35px;
+}
+
+.main-login .main-login-mes img {
+	position: relative;
+	left: 30px;
+	top: 1px;
+}
+/*响应式*/
+@media screen and (max-width:1350px) {
+	body {
+		width: 1350px;
+	}
+}

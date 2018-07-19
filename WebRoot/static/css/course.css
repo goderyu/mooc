@@ -1,0 +1,151 @@
+.wrap {
+	display:flex;
+	margin-top: 100px;
+	height: auto;
+	background-color: #eee;
+}
+
+.wrap .top {
+	width: 100%;
+	height: auto;
+	background-color: white;
+	padding-bottom: 100px;
+}
+
+.wrap .left img {
+	width: 520px;
+	height: 290px;
+	margin-left: 80px;
+}
+
+.left,.right {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.wrap .right .school-msg {
+	background-color: #eee;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.wrap .right .school-msg div {
+	padding: 10px 0 10px 10px;
+}
+
+.wrap .right>div {
+	margin-left: 100px;
+}
+
+.wrap .right .count {
+	margin-bottom: 10px;
+}
+
+.wrap .right button {
+	width: 230px;
+	height: 53px;
+	border: none;
+	background-color: #ff8c58;
+	color: white;
+	font-size: 18px;
+}
+
+.wrap .down-left {
+	width: 890px;
+	margin: 50px 30px 30px 80px;
+	height: auto;
+	background-color: white;
+	padding-bottom: 30px;
+}
+
+.down-left,.down-right {
+	display: inline-block;
+}
+
+.course-xq {
+	display: inline-block;
+	margin-left: 50px;
+	margin-top: 30px;
+	font-size: 18px;
+	color: #55b929;
+}
+
+.course-pj {
+	margin-left: 100px;
+	font-size: 18px;
+}
+
+.down-right {
+	vertical-align: top;
+	width: 300px;
+	height: auto;
+	padding-bottom:80px;
+	margin-top: 50px;
+	margin-left: 10px;
+	background-color: white;
+}
+
+.down .coursezl>div {
+	margin-left: 40px;
+}
+
+.down .coursems .coursems-text {
+	margin-top: 15px;
+}
+
+.down .coursems .coursems-head {
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.down .coursezl .coursedg {
+	margin-top: 30px;
+}
+
+.down .coursezl .coursedg-text {
+	margin-top: 15px;
+}
+
+.down .coursezl .cankaozl {
+	margin-top: 30px;
+}
+
+.down .coursezl .cankaozl-text {
+	margin-top: 15px;
+}
+
+.down-right img {
+	margin-left: 30px;
+}
+
+.wrap .down-right .teacher .teacher-img {
+	display:inline-block;
+	width: 57px;
+	height: 57px;
+	border-radius: 57px;
+	overflow: hidden;
+	margin-left:30px;
+}
+.wrap .down-right .teacher{
+	margin-top:30px;
+}
+.wrap .down-right .teacher .teacher-name{
+	display:inline-block;
+	margin-left:15px;
+	margin-bottom:40px;
+	vertical-align: middle;
+}
+.wrap .down-right .teacher .teacher-img img{
+	width: 57px;
+	height: 57px;
+	margin-left:0;
+}
+.first-level-text{
+	margin-top:20px;
+	font-size:18px;
+}
+.second-level{
+	margin-top:10px;
+	margin-left:15px;
+	font-size:16px;
+}

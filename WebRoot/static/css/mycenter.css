@@ -1,0 +1,168 @@
+@CHARSET "UTF-8";
+*{
+	padding:0;
+	margin:0;
+}
+.wrap{
+	background-color:#eeeeee;	
+	width:100%;
+	height:auto;
+}
+.wrap .head{
+	font-size:30px;
+	color:#55b929;
+	padding-left:290px;
+	padding-top:20px;
+}
+.wrap .center{
+	background-color:white;
+	margin-top:50px;
+	margin-left:400px;
+	line-height:60px;
+	width:685px;
+	height:auto;
+}
+.first{
+	padding-top:25px;
+}
+.wrap .center span{
+	width:100px;
+	display:inline-block;
+	text-align:right;   
+}
+
+.wrap .center .star{
+	color:#55b929;
+}
+.wrap .center .file{
+	width: 100px;
+	height: 100px;
+	margin-top:-20px;
+	margin-left:259px;
+	opacity:0;
+	z-index:20;
+	border-radius:50%;
+}
+.wrap .center .img{
+	margin-left:259px;
+	margin-top:-100px;
+	cursor: pointer; 
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+.img img{
+	width:100px;
+	height:100px;
+	border-radius:50%;
+}
+.wrap .center .plus{
+	line-height: 15px;
+	font-size: 30px;
+	color:black;
+	margin-top:47px;
+	margin-right:100px;
+}
+.wrap .center .input{
+	border:1px solid gray;
+	width:250px;
+	height:30px;
+}
+.wrap .center .list{
+	border:1px solid gray;
+	width:100px;
+	height:30px;
+}
+.wrap .center .intro{
+	border:1px solid gray;
+	margin-bottom:10px;
+}
+.wrap .center .button{
+	border:1px solid gray;
+	margin:28px 200px;
+	width:249px;
+	height:30px;
+	line-height:30px;
+	font-size:16px;
+	background-color:#55b929;
+}
+.hint-0{
+	margin-left:25px;
+}
+.hint{
+	margin-left:0px;
+}
+.center .nickname{
+	padding:0px 90px;
+}
+.change{
+	background:white;
+	border:white;
+	margin:-511px 863px;
+	color:#55b929;
+}
+.update{
+	background:#efefef;
+	height: 230px;
+	width: 466px;
+	padding: 20px 87px;
+	line-height: 75px;
+	margin: 20px -70px;
+	/* 修改样式 */
+	display:none;
+	position:fixed;
+	left:40%;
+	top:40%;
+}
+.update .input-1{
+	border:1px solid gray;
+	width:220px;
+	height:35px;
+	line-height:10px;
+	margin-top:30px;
+}
+.update .button-1{
+	width:200px;
+	margin:-43px 64px;
+}
+.update .button-1 .button-2{
+	border:1px solid gray;
+	background:#55b929;
+	line-height:30px;
+	width:60px;
+	margin-right:39px;
+	margin-top:20px;
+}
+.update .button-1 .submit{
+	border:1px solid gray;
+	background:#55b929;
+	margin-right:30px;
+	margin-top:20px;
+}
+.update .button-1 a{
+	width:60px;
+	height:30px;
+	color:#483b3b;
+	text-decoration:none;
+	padding:7px 15px;  
+}
+.update .hint-1{
+	margin:50px 115px;
+}
+.wrap .error{
+	margin:-25px 270px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

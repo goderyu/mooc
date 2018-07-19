@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+body{
+	/* background:#487f95; */
+	background:url(../img/timg.png) no-repeat;
+	background-size:1586px 800px;
+}
+.wrap{
+	box-shadow:3px 3px 20px 3px #89c7d1e6;
+	background:#c2dce0e6;
+	width:360px;
+	height:210px;
+	margin:190px 300px;
+	padding:25px 45px;
+	line-height:70px; 
+}
+.wrap span{
+	width:100px;
+	display:inline-block;
+	text-align:right;
+}
+.wrap input{
+	border:1px solid gray;
+	height:30px;
+	width:200px;
+}
+.wrap .hint{
+	font-size:28px;
+	width:50px;
+}
+.wrap .button{
+	margin:20px 125px;
+}
+.button input{
+	width:100px;
+}
+.wrap .error{
+	margin:-37px 112px;
+	width:128px;
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

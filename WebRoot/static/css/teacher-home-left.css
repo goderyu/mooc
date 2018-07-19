@@ -1,0 +1,58 @@
+.wrap {
+	margin-top: 100px;
+	margin-left: 80px;
+	width: 220px;
+	height: 1000px;
+	background-color: #f9f9f9;
+}
+
+.wrap .headmsg {
+	width: 220px;
+	height: 180px;
+	background: url("/mooc/static/img/personalBg.jpg") no-repeat 100% 100%;
+	background-size: 100% 100%;
+}
+
+.wrap .headmsg .headimg {
+	border: 1px solid green;
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	margin-left: 65px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.wrap .headmsg .headimg img {
+	width: 80px;
+	height: 80px;
+}
+
+.wrap .headmsg .teacher-name {
+	font-size: 18px;
+	color: gray;
+	display: inline-blcok;
+	margin-left: 75px;
+}
+
+ul li {
+	list-style: none;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+ul li img {
+	margin-left: 20px;
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+ul li .menu-select {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.wrap .menu-left .menu-select:hover {
+	cursor: pointer;
+	color: #0099ff;
+}

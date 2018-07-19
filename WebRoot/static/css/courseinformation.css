@@ -1,0 +1,136 @@
+@CHARSET "UTF-8";
+.wrap{
+	background:#eeeeee;	
+	width:100%;
+	height:auto;
+}
+.wrap .head{
+	width:100%;
+	height:50px;
+	margin-top:50px;
+	background:white;
+}
+.head .wire,.head .name{
+	float:left;
+}
+.head .wire{
+	border-right:1px solid #eceaea;
+	padding-left:220px;
+	color:gray;
+	height:50px;
+}
+.head .name{
+	padding-top:9px;
+	padding-left:25px;
+}
+.head .teacher{
+	color:#55b929;
+	font-size:12px;
+}
+.head .evaluate{
+	padding-top:17px;
+	padding-left:1325px;
+	color:#55b929;
+	cursor:pointer;
+}
+.wrap .left{
+	width:220px;
+	height:700px;
+	
+}
+.left .picture{
+	width:200px;
+	height:120px;
+	margin:20px 10px 10px 10px;
+	border-radius:5px;	
+	background:white;
+}
+.left .list{
+	width:200px;
+	height:250px;
+	background:white;
+	margin:0 10px;
+	line-height:50px;
+	cursor:pointer;
+}
+.list li{
+	list-style:none;
+	padding-left:10px;
+	border-bottom:1px solid #eceaea;
+}
+.list li:hover{
+	background:#fbf9f9;
+	color:#55b929;
+}
+.list .first{
+	background:#55b929;
+	color:white;
+}
+.left .share{
+	width:200px;
+	height:50px;
+	margin:10 10px;
+	background:white;
+	padding:15px 10px;
+}
+.share img{
+	width:20px;
+}
+.share .map{
+	padding-left:25px;
+}
+.share .share-1,.share .map{
+	float:left;
+}
+.wrap .help{
+	width:200px;
+	height:50px;
+	margin:10 10px;
+	background:white;
+	padding:15px 10px;
+	cursor:pointer;
+	color:#55b929;
+}
+.help a{
+	color:#55b929;
+	text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

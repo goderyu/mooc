@@ -1,0 +1,230 @@
+.wrap {
+	margin-top: 70px;
+	height: auto;
+}
+
+.wrap .coursecontent-head ul li {
+	display: inline-block;
+}
+
+.wrap .coursecontent-head ul li {
+	margin-right: 40px;
+	font-size: 20px;
+	padding: 5px 10px;
+}
+
+.wrap .coursecontent-head ul li:nth-child(1) {
+	font-size: 25px;
+	font-weight: border;
+	margin-left: 125px;
+	margin-right: 360px;
+}
+
+.wrap .coursecontent-head {
+	border-bottom: 2px solid gray;
+}
+
+.wrap .coursecontent-head .selected {
+	background-color: #999999;
+	color: white;
+	border-radius: 5px;
+}
+
+.wrap .coursecontent-head ul li:hover {
+	cursor: pointer;
+	background-color: #999999;
+	color: white;
+	border-radius: 5px;
+}
+
+.wrap .catalog {
+	margin-top: 50px;
+	margin-left: 300px;
+	width: 800px;
+	border: 1px solid #999999;
+	height: auto
+}
+
+.wrap .catalog .tittle {
+	display:inline-block;
+	margin: 20px;
+	font-size: 25px;
+}
+
+.wrap .catalog .line {
+	display: inline-block;
+	width:800px;
+	border-top: 1px solid #999999;
+}
+
+.wrap .catalog .catalog-content .first-level {
+	margin: 20px;
+	font-size: 16px;
+}
+
+.wrap .catalog .catalog-content .first-level b {
+	position: relative;
+	left: -20px;
+}
+
+.wrap .catalog .catalog-content .second-level {
+	height:40px;
+	width:720px;
+	margin: 10px 10px 10px 50px;
+	padding: 5px;
+}
+
+.wrap .catalog .catalog-content .first-level .first-level-text:hover {
+	cursor: pointer;
+	background-color: #eee;
+}
+
+.wrap .catalog .catalog-content .first-level .first-level-text:hover .editor{
+	display: inline-block;
+}
+
+.wrap .catalog .catalog-content .second-level:hover .editor {
+	display: inline-block;
+}
+
+.wrap .catalog .catalog-content .second-level:hover {
+	background-color: #eee;
+	cursor: pointer;
+}
+
+.wrap .catalog .catalog-content .second-level b {
+	color: gray;
+}
+
+.wrap .catalog .catalog-content .second-level img {
+	margin: 0 5px;
+}
+
+.wrap .catalog .catalog-content .levelname {
+	width: 120px;
+}
+
+.wrap .catalog .catalog-content .levelnameinput {
+	width: 120px;
+}
+
+.content-foot {
+	padding-bottom: 30px;
+}
+
+.wrap .catalog .catalog-content .editor {
+	position:absolute;
+	left: 850px;
+	display: none;
+	border: none;
+	background-color: #55b929;
+	color: white;
+	font-size: 12px;
+	padding: 5px;
+}
+.wrap .catalog .addimg{
+	width:20px;
+	height:20px;
+	margin-right:10px;
+	margin-left:200px;
+	vertical-align: middle;
+}
+.wrap .editor-window {
+	display: none;
+	background-color: #eee;
+	position: fixed;
+	top: 30%;
+	left: 30%;
+	width: 400px;
+	height: 200px;
+	border: 1px solid #999999;
+}
+
+.wrap .editor-window .editor-window-close {
+	cursor: pointer;
+	margin-left: 380px;
+	font-size: 25px;
+}
+
+.wrap .editor-window .editor-head {
+	display: inline-block;
+	margin-left: 125px;
+	letter-spacing: 4px;
+	font-size: 18px;
+	margin-top: -15px;
+	padding-bottom: 10px;
+}
+
+.wrap .editor-window .editor-name {
+	margin-top: 30px;
+	display: inline-block;
+	margin-left: 70px;
+}
+
+.wrap .editor-window .editorinput {
+	height: 35px;
+	width: 150px;
+	padding-left: 5px;
+}
+
+.wrap .editor-window .editorbtn {
+	width: 80px;
+	height: 40px;
+	color: white;
+}
+
+.wrap .editor-window .closebtn {
+	border: 0;
+	margin-left:200px;
+	background-color: #999999;
+	width: 80px;
+	height: 40px;
+	color: white;
+	margin-top:-55px;
+}
+.wrap .catalog .addparent{
+	cursor:pointer;
+	border:0;
+	background-color:white;
+}
+.wrap .catalog .catalog-content .deletec{
+	position:absolute;
+	left:950px;
+	margin-top:-17px;
+	vertical-align:middle;
+	display: none;
+	border: none;
+	background-color: red;
+	color: white;
+	font-size: 12px;
+	padding: 5px;
+}
+.wrap .catalog .catalog-content .first-level .first-level-text:hover .deletec{
+	display: inline-block;
+}
+.wrap .catalog .catalog-content .second-level:hover .deletec {
+	display: inline-block;
+}
+.addchildbtn{
+	border:none;
+	background-color:white;
+}
+.move{
+	display:none;
+}
+.wrap .second-level:hover .move{
+	display:inline-block;
+}
+.wrap .catalog .catalog-content .first-level  .first-level-text:hover .move{
+	display:inline-block;
+}
+
+.editorcontent{
+	width:100px;
+	height:30px;
+	border:0;
+	margin-left:60px;
+	background-color:#55b929;
+	color:white;
+	
+}

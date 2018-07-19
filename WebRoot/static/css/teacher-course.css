@@ -1,0 +1,76 @@
+.course-manage{
+		margin-top:100px;
+		margin-left:50px;
+	}
+	.course-manage .course-manage-head span{
+		font-size:20px;
+		margin-right:20px;
+		padding-bottom: 7px;
+	}
+	.course-manage-head .select{
+		border-bottom:3px solid #55b929;
+		color:#55b929;
+	}
+	.course-manage-head .select:hover{
+		color:#55b929;
+	}
+	.course-manage .teach-course{
+		margin-top:10px;
+	}
+	.course-manage .teach-course .courses{
+		cursor:pointer;
+		margin-top:30px;
+		margin-right:30px;
+		display:inline-block;
+		width:272px;
+		height:270px;
+		border:1px solid #eee;
+		background-color: #f3f3f3;
+	}
+	.course-manage .teach-course .courses img{
+		width:272px;
+		height:190px;
+	}
+	.course-manage .teach-course  .course-msg .course-name{
+		display:inline-block;
+		margin-top:10px;
+		margin-left:10px;
+	}
+	.course-manage .teach-course  .course-msg .teahcer-name{
+		display:inline-block;
+		margin-top:10px;
+		margin-left:10px;
+		font-size:12px;
+		color:gray;
+	}
+	.course-manage .teach-course .add-course{
+		margin-top:30px;
+		margin-right:30px;
+		display:inline-block;
+		width:272px;
+		height:270px;
+		border:1px solid #eee;
+		background-color: #f3f3f3;
+		cursor:pointer;
+	}
+	.course-manage .teach-course .addfh{
+		margin-top:86px;
+		margin-left:85px;
+		width:100px;
+		height:100px;
+		text-align:center;
+		border-radius:100px;
+		background-color:#55b929;
+		cursor:pointer;
+	}
+	.course-manage .teach-course .addfh span{
+		display:inline-block;
+		vertical-align:top;
+		color:white;
+		font-weight:border;
+		font-size:70px;
+	}
+	
+	
+/* ----------------- */
+
