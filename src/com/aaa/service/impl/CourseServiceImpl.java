@@ -6,6 +6,7 @@ import com.aaa.dao.CourseDAO;
 import com.aaa.dao.impl.CourseDAOImpl;
 import com.aaa.entity.CourseBase;
 import com.aaa.entity.FirstCatalog;
+import com.aaa.entity.SecondCatalog;
 import com.aaa.service.CourseService;
 
 public class CourseServiceImpl implements CourseService {
@@ -24,6 +25,11 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public List<FirstCatalog> getFirstCatalog(int id) {
 		return courseDAO.getFirstCatalog(id);
+	}
+
+	@Override
+	public List<SecondCatalog> getSecondCatalog(int id) {
+		return courseDAO.getSecondCatalog(id);
 	}
 
 }

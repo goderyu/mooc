@@ -6,6 +6,7 @@ import com.aaa.dao.BaseDAO;
 import com.aaa.dao.CourseDAO;
 import com.aaa.entity.CourseBase;
 import com.aaa.entity.FirstCatalog;
+import com.aaa.entity.SecondCatalog;
 
 public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 
@@ -33,6 +34,14 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		String sql = "select id,courseid,catalogname,ctext,cvideo,corder from coursefirstcatalog where courseid = ?";
 		Object[] params = { id };
 		List<FirstCatalog> list = search(sql, FirstCatalog.class, params);
+		return list;
+	}
+
+	@Override
+	public List<SecondCatalog> getSecondCatalog(int id) {
+		String sql = "select id,catalogid,subcatalogname,subctext,subcvideo,subcorder from coursesecondcatalog where catalogid = ?";
+		Object[] params = { id };
+		List<SecondCatalog> list = search(sql, SecondCatalog.class, params);
 		return list;
 	}
 
