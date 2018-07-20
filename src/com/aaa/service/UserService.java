@@ -10,5 +10,6 @@ import com.aaa.entity.UserLoginInfo;
  */
 public interface UserService {
 	public int insertUserLoginInfo(UserLoginInfo user);
-	public UserLoginInfo selectByTelAndPwd(String tel,String pwd);
+
+	public UserLoginInfo selectByTelAndPwd(String tel, String pwd);
 }

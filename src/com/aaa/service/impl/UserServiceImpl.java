@@ -8,7 +8,7 @@ import com.aaa.service.UserService;
 public class UserServiceImpl implements UserService {
 
 	UserDAO userDAO = new UserDAOImpl();
-	
+
 	@Override
 	public int insertUserLoginInfo(UserLoginInfo user) {
 		return userDAO.insertUserLoginInfo(user);
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserLoginInfo selectByTelAndPwd(String tel, String pwd) {
-		return userDAO.selectByTelAndPwd(tel,pwd);
+		return userDAO.selectByTelAndPwd(tel, pwd);
 	}
 
 }

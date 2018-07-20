@@ -21,11 +21,11 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.aaa.util.DBConfig;
 
 /**
- * @ClassName:     BaseDAO
+ * @ClassName: BaseDAO
  * @Description:TODO
- * @author:    goderyu
- * @date:        2018年7月20日 上午8:53:58
- *
+ * @author: goderyu
+ * @date: 2018年7月20日 上午8:53:58
+ * 
  */
 public class BaseDAO {
 	private static Connection conn = null;
@@ -75,15 +75,12 @@ public class BaseDAO {
 		}
 	}
 
-
-
-
 	/**
 	 * @description: 公用的增删改方法
 	 * @param @param sql 数据库操作语句
 	 * @param @param params 变长通用类型变量
-	 * @param @return   增删改操作的成败标志
-	 * @return int 
+	 * @param @return 增删改操作的成败标志
+	 * @return int
 	 * @date 2018年7月20日上午9:37:42
 	 */
 	public int savaOrUpdate(String sql, Object... params) {
@@ -108,9 +105,12 @@ public class BaseDAO {
 	}
 
 	/**
-	 * @param sql 查询语句
-	 * @param clazz 类.class
-	 * @param params sql预编译语句需要的参数
+	 * @param sql
+	 *            查询语句
+	 * @param clazz
+	 *            类.class
+	 * @param params
+	 *            sql预编译语句需要的参数
 	 * @return 类对象的列表
 	 */
 	public <T> List<T> search(String sql, Class<T> clazz, Object... params) {

@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.FirstCatalog;
 import com.aaa.service.CourseService;
 import com.aaa.service.impl.CourseServiceImpl;
+import com.alibaba.fastjson.JSON;
 
 public class CourseServlet extends HttpServlet {
 
@@ -33,8 +35,26 @@ public class CourseServlet extends HttpServlet {
 			getCourseBaseInfo();
 		} else if (method.equals("getOneCourseDetail")) {
 			getOneCourseDetail();
+		} else if (method.equals("getFirstCatalogInfo")) {
+			getFirstCatalogInfo();
 		}
 
+	}
+
+	/**
+	 * @description: 获得dao层结果集查出的一级标题对象后转换成json格式传递到view层
+	 * @param @throws IOException
+	 * @return void
+	 * @date 2018年7月20日上午10:04:33
+	 */
+	private void getFirstCatalogInfo() throws IOException {
+		// 解决中文乱码问题，设置编码格式
+		resp.setCharacterEncoding("utf-8");
+		String id = req.getParameter("id");
+		List<FirstCatalog> list = courseService.getFirstCatalog(Integer
+				.parseInt(id));
+		String json = JSON.toJSONString(list);
+		resp.getWriter().print(json);
 	}
 
 	private void getOneCourseDetail() throws ServletException, IOException {
