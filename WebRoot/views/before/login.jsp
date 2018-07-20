@@ -114,8 +114,6 @@
 					"password" : $(".password").val()
 				}, function(data) {
 					if (data=='true') {
-						alert('登录成功！');
-						//window.location.href="/mooc/views/before/main.jsp";
 						window.location.href="/mooc/CourseServlet?method=getCourseBaseInfo";
 					} else {
 						$("#loginmsg").html("&nbsp密码错误");

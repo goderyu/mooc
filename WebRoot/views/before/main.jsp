@@ -41,14 +41,14 @@
 			
 			
 			<c:choose>
-				<c:when test="${empty USER}">
+				<c:when test="${empty user}">
 					<a class="login" style="cursor:pointer;" href="/mooc/views/before/login.jsp">登录&nbsp</a>
 					<span>|</span>
-					<a href="register.jsp">注册</a>
+					<a href="/mooc/views/before/register.jsp">注册</a>
 				</c:when>
 				<c:otherwise>
-					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${USER.username}</a>
-					|<a href="/mooc/before/login/loginout" style="cursor:pointer;">注销</a>
+					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${user.username}</a>
+					|<a href="/mooc/UserServlet?method=quit" style="cursor:pointer;">注销</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -176,7 +176,7 @@
 					<div class="course-text">
 						<div class="course-name">${item.cname}</div>
 						<div style="margin-top:30px;margin-left:10px;">
-							<span>华北水利水电大学</span> <img
+							<span>河南工业大学</span> <img
 								style="margin-left: 60px;" src="img/course/count.png"> <span
 								style="margin-left:10px;">${item.count}</span>
 						</div>
