@@ -32,4 +32,9 @@ public class CourseServiceImpl implements CourseService {
 		return courseDAO.getSecondCatalog(id);
 	}
 
+	@Override
+	public boolean isStudyCourse(int userid, int courseid) {
+		return courseDAO.isStudyCourse(userid, courseid);
+	}
+
 }

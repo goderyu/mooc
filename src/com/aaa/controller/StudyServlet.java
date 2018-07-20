@@ -28,6 +28,14 @@ public class StudyServlet extends HttpServlet {
 			throws ServletException, IOException {
 		req = request;
 		resp = response;
+		String method = req.getParameter("method");
+		if (method.equals("toMain")) {
+			toMain();
+		}
+
+	}
+
+	private void toMain() throws ServletException, IOException {
 		req.getRequestDispatcher("views/before/student/student-frameset.jsp")
 				.forward(req, resp);
 	}

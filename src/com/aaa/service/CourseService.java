@@ -28,4 +28,14 @@ public interface CourseService {
 	 * @date 2018年7月20日上午10:29:38
 	 */
 	public List<SecondCatalog> getSecondCatalog(int id);
+
+	/**
+	 * @description: 判断student_course表中是否有该用户该课程信息
+	 * @param @param userid 当前登录用户的id
+	 * @param @param courseid 点击进入的课程id
+	 * @param @return 查询后返回的列表标志
+	 * @return boolean
+	 * @date 2018年7月20日下午3:56:36
+	 */
+	public boolean isStudyCourse(int userid, int courseid);
 }

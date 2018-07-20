@@ -45,4 +45,12 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		return list;
 	}
 
+	@Override
+	public boolean isStudyCourse(int userid, int courseid) {
+		String sql = "select id,userid,courseid from student_course where userid=? and courseid=?";
+		Object[] params = { userid, courseid };
+		List<Object> list = search(sql, Object.class, params);
+		return (list.size() > 0) ? true : false;
+	}
+
 }
