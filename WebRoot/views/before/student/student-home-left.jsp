@@ -34,15 +34,15 @@
   <div class="wrap">
 		<div class="headmsg">
 			<div class="headimg"><img src="${user.headImg}"></div>
-			<span class="teacher-name">${user.name}</span>
+			<span class="teacher-name">${user.username}</span>
 		</div>
 		<div class="menu-left">	
 			<ul>
 				<li>
-					<img  src="img/course/ketangn.png"><a href="/mooc/studyServlet?method=toCourse" target="right" class="menu-select">课堂</a>
+					<img  src="img/course/ketangn.png"><a href="/mooc/StudyServlet?method=toCourse" target="right" class="menu-select">课堂</a>
 				</li>
 				<li>
-					<img  src="img/course/ketangn.png"><a href="/mooc/basicinfoServlet?method=getBasicUser&userid=${user.id}" target="right" class="menu-select">账号管理</a>
+					<img  src="img/course/ketangn.png"><a href="/mooc/BasicinfoServlet?method=getBasicUser&userid=${user.id}" target="right" class="menu-select">账号管理</a>
 				</li>
 			</ul>
 		</div>

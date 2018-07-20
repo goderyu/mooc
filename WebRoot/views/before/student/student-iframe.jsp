@@ -15,7 +15,7 @@
 </head>
  <body style="margin: 0px; width:100%;">
  	<jsp:include page="/static/jsp/header.jsp"></jsp:include>
-    <iframe src="/mooc/before/student/studentframeset" style="border-width:0px;width:100%;" height="1000px";  >
+    <iframe src="/mooc/before/student/student-frameset" style="border-width:0px;width:100%;" height="1000px";  >
 	</iframe>
 	<jsp:include page="/static/jsp/foot.jsp"></jsp:include>
 </body>

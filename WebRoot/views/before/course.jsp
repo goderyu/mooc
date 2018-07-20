@@ -35,14 +35,14 @@
 					<h1>${coursebase.cname}</h1>
 				</div>
 				<div class="school-msg">
-					<div>学校：华北水利水电大学</div>
+					<div>学校：河南工业大学</div>
 					<div>${coursebase.introduce}</div>
 				</div>
 				<div>
 					<div class="count">已有${coursebase.count}人报名</div>
 					<div>
-						<form action="/mooc/studyServlet?method=toMain" method="post" id="studyform">
-							<input type="hidden" value="${courseid}" name="courseid" />
+						<form action="/mooc/StudyServlet?method=toMain" method="post" id="studyform">
+							<input type="hidden" value="${coursebase.id}" name="courseid" />
 						</form>
 						<c:choose>
 							<c:when test="${isStudyCourse}">
@@ -99,10 +99,10 @@
 			}
 		})
 		$(".gotostudy").click(function(){
-			var user='${USER}';
+			var user='${user}';
 			if(user==null||user==''){
 				if(confirm("您还没有登录，请先登录！")){
-					window.location.href="/mooc/before/login/tologin";
+					window.location.href="/mooc/views/before/login.jsp";
 				}
 			}else{
 				window.location.href="/mooc/before/index/person";
@@ -132,10 +132,9 @@
 			              data:{"id":data[i].id},
 			              dataType:"json",
 				          success:function(second){
-				          
 				             for(var j=0;j<second.length;j++){
 				                 div+="<div class='second-level selected'>"
-				                  div+="<span>"+(i+1)+"."+(j+1)+second[j].scatalogname+"</span>";
+				                  div+="<span>"+(i+1)+"."+(j+1)+" "+second[j].subcatalogname+"</span>";
 				                 div+="</div>";
 				             }
 				          }

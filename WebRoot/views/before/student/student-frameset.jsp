@@ -26,8 +26,8 @@
 </head> 
 	<frameset  cols="25%,75%" border="0" style="height:100%;">
 
-		<frame src="/mooc/views/before/student/student-home-left.jsp"  scrolling="no" />
-		<frame src="/mooc/views/before/student/student-course.jsp" name="right" scrolling="no"/>
+		<frame src="../views/before/student/student-home-left.jsp"  scrolling="no" />
+		<frame src="../views/before/student/student-course.jsp" name="right" scrolling="no"/>
 
 	</frameset>
 <body>
