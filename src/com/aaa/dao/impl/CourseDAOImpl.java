@@ -53,4 +53,18 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		return (list.size() > 0) ? true : false;
 	}
 
+	@Override
+	public int insStudentCourse(int userid, int courseid) {
+		String sql = "insert into student_course(userid,courseid) values(?,?)";
+		Object[] params = { userid, courseid };
+		return savaOrUpdate(sql, params);
+	}
+
+	@Override
+	public int updateCount(int courseid) {
+		String sql = "update coursebase set count=count+1 where id=?";
+		Object[] params = { courseid };
+		return savaOrUpdate(sql, params);
+	}
+
 }

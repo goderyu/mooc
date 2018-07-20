@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.aaa.entity.UserLoginInfo;
+import com.aaa.service.CourseService;
+import com.aaa.service.impl.CourseServiceImpl;
+
 /**
  * @author goderyu
  * @date 2018年7月20日 下午2:41:00
@@ -35,7 +39,23 @@ public class StudyServlet extends HttpServlet {
 
 	}
 
+	/**
+	 * @description: 点击课程详情中未参加或去学习按钮的事件
+	 * @param @throws ServletException
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月20日下午5:19:24
+	 */
 	private void toMain() throws ServletException, IOException {
+		// 获取页面请求的用户id和课程id
+		int userid =((UserLoginInfo)req.getSession().getAttribute("user")).getId();
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		// 向student_course表中插入数据
+		CourseService courseService = new CourseServiceImpl();
+		int result = courseService.insStudentCourse(userid, courseid);
+		if(result>0)
+			// 说明插入成功，应将课程报名总数加一
+			courseService.updateCount(courseid);
 		req.getRequestDispatcher("views/before/student/student-frameset.jsp")
 				.forward(req, resp);
 	}

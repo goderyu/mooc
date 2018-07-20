@@ -37,4 +37,14 @@ public class CourseServiceImpl implements CourseService {
 		return courseDAO.isStudyCourse(userid, courseid);
 	}
 
+	@Override
+	public int insStudentCourse(int userid, int courseid) {
+		return courseDAO.insStudentCourse(userid, courseid);
+	}
+
+	@Override
+	public int updateCount(int courseid) {
+		return courseDAO.updateCount(courseid);
+	}
+
 }

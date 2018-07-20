@@ -38,4 +38,23 @@ public interface CourseService {
 	 * @date 2018年7月20日下午3:56:36
 	 */
 	public boolean isStudyCourse(int userid, int courseid);
+	
+	/**
+	 * @description: 向student_course表中插入用户选择课程信息
+	 * @param @param userid 当前登录用户的id
+	 * @param @param courseid 进入的课程id
+	 * @param @return   
+	 * @return int 
+	 * @date 2018年7月20日下午5:25:46
+	 */
+	public int insStudentCourse(int userid, int courseid);
+	
+	/**
+	 * @description: 报名课程后，总数加一
+	 * @param @param courseid 该课程id
+	 * @param @return
+	 * @return int
+	 * @date 2018年7月20日下午5:32:01
+	 */
+	public int updateCount(int courseid);
 }
