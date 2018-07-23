@@ -18,7 +18,7 @@ public class StudyDAOImpl extends BaseDAO implements StudyDAO {
 		String sql = "SELECT c.id,c.cname,c.img FROM student_course sc INNER JOIN coursebase c ON sc.courseid=c.id where sc.userid=?";
 		Object[] params = { userid };
 		List<CourseBase> list = search(sql, CourseBase.class, params);
-		if (list != null)
+		if (list.size() > 0)
 			return list;
 		else
 			return null;
@@ -27,7 +27,7 @@ public class StudyDAOImpl extends BaseDAO implements StudyDAO {
 	@Override
 	public int deleteStudyCourse(int userid, int courseid) {
 		String sql = "DELETE FROM student_course WHERE userid=? and courseid=?";
-		Object[] params = { userid,courseid };
+		Object[] params = { userid, courseid };
 		int result = savaOrUpdate(sql, params);
 		return result;
 	}

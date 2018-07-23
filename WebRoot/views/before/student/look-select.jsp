@@ -54,14 +54,14 @@ button:hover {
 </head>
 <body>
 	<ul>
-		<li><a target="down" href="/mooc/before/student/coursetext?state=${state}&catalogid=${catalogid}"><button class="eword selected">查看文档</button>
+		<li><a target="down" href="/mooc/views/before/student/look-word.jsp?state=${state}&catalogid=${catalogid}"><button class="eword selected">查看文档</button>
 		</a>
 		</li>
-		<li><a target="down" href="/mooc/before/student/coursevideo?state=${state}&catalogid=${catalogid}"><button
+		<li><a target="down" href="/mooc/views/before/student/look-video.jsp?state=${state}&catalogid=${catalogid}"><button
 					class="evideo selected">查看视频</button>
 		</a>
 		</li>
-		<li><a target="_window" href="/mooc/before/student/lookcontent"><button>返回</button></a>
+		<li><a target="_window" href="/mooc/views/before/student/look-coursecontent.jsp"><button>返回</button></a>
 		</li>
 	</ul>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>

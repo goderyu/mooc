@@ -15,10 +15,10 @@
 </head>
 	<frameset name="fra" cols="75%,25%" id="fra" border="10" bordercolor="black" style="height:100%;">
 			<frameset rows="7%,93%" border="0">
-				<frame src="/mooc/before/student/coursetop" name="ltop" scrolling="no" />
-				<frame src="/mooc/before/student/coursetext" name="down" />
+				<frame src="/mooc/views/before/student/look-select.jsp" name="ltop" scrolling="no" />
+				<frame src="/mooc/views/before/student/look-word.jsp" name="down" />
 			</frameset>
-			<frame src="/mooc/before/student/courseright" name="right" scrolling="no" />
+			<frame src="/mooc/views/before/student/look-catalog.jsp" name="right" scrolling="no" />
 	</frameset>
 <body>
 </body>

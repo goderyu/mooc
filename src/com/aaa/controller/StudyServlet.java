@@ -1,6 +1,7 @@
 package com.aaa.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.FirstCatalog;
+import com.aaa.entity.SecondCatalog;
 import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.CourseService;
 import com.aaa.service.StudyService;
@@ -27,6 +30,7 @@ public class StudyServlet extends HttpServlet {
 	HttpServletRequest req = null;
 	HttpServletResponse resp = null;
 	StudyService studyService = new StudyServiceImpl();
+	CourseService courseService = new CourseServiceImpl();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -44,9 +48,42 @@ public class StudyServlet extends HttpServlet {
 			toCourse();
 		} else if (method.equals("toDelete")) {
 			toDelete();
+		} else if (method.equals("getCourseContent")) {
+			getCourseContent();
 		}
 	}
 
+	/**
+	 * @description: 在学习课程页面显示一级二级目录事件
+	 * @param @throws ServletException
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月23日下午4:58:46
+	 */
+	private void getCourseContent() throws ServletException, IOException {
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		CourseBase courseBase = courseService.getCourseBaseById(courseid);
+		req.setAttribute("course", courseBase);
+		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
+		req.setAttribute("firstlist", firstlist);
+		List<List<SecondCatalog>> secondlists = new ArrayList<List<SecondCatalog>>();
+		for (int i = 0; i < firstlist.size(); i++) {
+			List<SecondCatalog> asecondlist = courseService
+					.getSecondCatalog(firstlist.get(i).getId());
+			secondlists.add(asecondlist);
+		}
+		req.setAttribute("secondlists", secondlists);
+		req.getRequestDispatcher("views/before/student/look-coursecontent.jsp")
+				.forward(req, resp);
+	}
+
+	/**
+	 * @description: 删除学生选课事件
+	 * @param @throws ServletException
+	 * @param @throws IOException
+	 * @return void
+	 * @date 2018年7月23日上午11:31:47
+	 */
 	private void toDelete() throws ServletException, IOException {
 		// 获取页面请求的用户id和课程id
 		int userid = ((UserLoginInfo) req.getSession().getAttribute("user"))
@@ -54,8 +91,7 @@ public class StudyServlet extends HttpServlet {
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		int result = studyService.deleteStudyCourse(userid, courseid);
 		if (result > 0) {
-			req.getRequestDispatcher("views/before/student/student-course.jsp")
-					.forward(req, resp);
+			toCourse();
 		}
 	}
 
@@ -89,11 +125,13 @@ public class StudyServlet extends HttpServlet {
 				.getId();
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		// 向student_course表中插入数据
-		CourseService courseService = new CourseServiceImpl();
-		int result = courseService.insStudentCourse(userid, courseid);
-		if (result > 0)
-			// 说明插入成功，应将课程报名总数加一
-			courseService.updateCount(courseid);
+
+		if (!courseService.isStudyCourse(userid, courseid)) {
+			int result = courseService.insStudentCourse(userid, courseid);
+			if (result > 0)
+				// 说明插入成功，应将课程报名总数加一
+				courseService.updateCount(courseid);
+		}
 		req.getRequestDispatcher("views/before/student/student-frameset.jsp")
 				.forward(req, resp);
 	}

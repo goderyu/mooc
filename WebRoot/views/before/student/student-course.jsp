@@ -43,15 +43,17 @@
 			<div class="course-msg">
 				<span class="course-name">${coursebase.cname}</span><br/>
 			</div>
-			<form action="/mooc/before/student/lookcontent" target="_window" class="selectf" method="post">
-				<input type="hidden" name="id" value="${coursebase.id}">
+			<form action="/mooc/StudyServlet?method=getCourseContent" target="_window" class="selectf" method="post">
+				<input type="hidden" name="courseid" value="${coursebase.id}">
 			</form>
 			</div>
+			<div class="deletecourse">
 			<form action="/mooc/StudyServlet?method=toDelete"
 					style="display:inline-block;" target="right" method="post">
 					<input type="hidden" name="courseid" value="${coursebase.id}">
 					<button class="btn btn-danger" onclick="return deleteCourse();">删除该课程</button>
 			</form>
+			</div>
 		</div>
 		</c:forEach>
 		
@@ -62,7 +64,14 @@
 	$(".studycourse").click(function(){
 		var index =	$(".studycourse").index(this);
 		$(".selectf").eq(index).submit();
-	})
+	});
+	$(".deletecourse").click(function(){
+		if(confirm('确认删除吗？')){
+			return true;
+		} else {
+			return false;
+		}
+	});
 </script>
 <body>
 </body>

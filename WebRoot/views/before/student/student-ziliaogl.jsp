@@ -69,7 +69,7 @@ th {
 </head>
 <body>
 	<jsp:include page="/static/jsp/header.jsp"></jsp:include>
-	<form action="/mooc/before/student/lookcontent" 
+	<form action="/mooc/views/before/student/look-coursecontent.jsp" 
 		method="post" style="display:inline-block;">
 		<button class="btn btn-success add-btn">返回课程目录</button>
 	</form>

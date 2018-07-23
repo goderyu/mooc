@@ -105,7 +105,7 @@
 					window.location.href="/mooc/views/before/login.jsp";
 				}
 			}else{
-				window.location.href="/mooc/before/index/person";
+				window.location.href="/mooc/views/before/student/look-coursecontent.jsp";
 			}
 		});
 		//JS

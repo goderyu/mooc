@@ -40,34 +40,34 @@ text-decoration:none;
 	<div class="wrap">
 		<div class="coursecontent-head">
 			<ul>
-				<li>${course.courseName}</li>
+				<li>${course.cname}</li>
 				<li class="selected">首页</li>
-				<li><form action="/mooc/before/student/listask" method="post" style="display:inline-block;">
+				<li><form action="/mooc/views/before/student/student-task.jsp" method="post" style="display:inline-block;">
 						<button class="taskbtn">作业</button>
 					</form></li>
-				<li><a href="/mooc/before/file/tostudentfilemaven" style="color:black;">资料</a></li>
+				<li><a href="/mooc/views/before/student/student-ziliaogl.jsp" style="color:black;">资料</a></li>
 				<li onclick="showdiscuss();">讨论</li>
 			</ul>
 		</div>
 		<div class="catalog">
 			<div class="tittle">目录</div>
-			<form action="/mooc/before/student/coursemsg" method="post" style="display:inline-block;">
-				<input type="hidden" id="courseid" name="courseid" value="${courseid}">
+			<form action="/mooc/views/before/student/look-frameset.jsp" method="post" style="display:inline-block;">
+				<input type="hidden" id="courseid" name="courseid" value="${course.id}">
 				<button class="editorcontent">查看课程内容</button>
 			</form>
 			<span class="line"></span><br>
 			<div class="catalog-content">
-				<c:forEach items="${list}" var="firstl" varStatus="fcount">
+				<c:forEach items="${firstlist}" var="firstl" varStatus="fcount">
 					<div class="first-level">
 						<div class="first-level-text">
 							<img src="img/course/level1.png"><b>${fcount.count}</b><span
-								class="levelname">${firstl.catalogName}</span>
+								class="levelname">${firstl.catalogname}</span>
 						</div>
-						<c:forEach items="${list.get(fcount.count-1).courseSecondCatalog}"
+						<c:forEach items="${secondlists.get(fcount.count-1)}"
 							var="secondl" varStatus="scount">
 							<div class="second-level">
 								<b>${fcount.count}.${scount.count}</b><img
-									src="img/course/level2.png"><span class="levelname">${secondl.scatalogName}</span>
+									src="img/course/level2.png"><span class="levelname">${secondl.subcatalogname}</span>
 							</div>
 						</c:forEach>
 					</div>
