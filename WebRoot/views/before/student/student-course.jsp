@@ -47,8 +47,8 @@
 				<input type="hidden" name="id" value="${coursebase.id}">
 			</form>
 			</div>
-			<form action="/mooc/before/student/deletestudycourse"
-					style="display:inline-block;" target="_window" method="post">
+			<form action="/mooc/StudyServlet?method=toDelete"
+					style="display:inline-block;" target="right" method="post">
 					<input type="hidden" name="courseid" value="${coursebase.id}">
 					<button class="btn btn-danger" onclick="return deleteCourse();">删除该课程</button>
 			</form>

@@ -26,6 +26,7 @@ public class StudyServlet extends HttpServlet {
 
 	HttpServletRequest req = null;
 	HttpServletResponse resp = null;
+	StudyService studyService = new StudyServiceImpl();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -41,6 +42,20 @@ public class StudyServlet extends HttpServlet {
 			toMain();
 		} else if (method.equals("toCourse")) {
 			toCourse();
+		} else if (method.equals("toDelete")) {
+			toDelete();
+		}
+	}
+
+	private void toDelete() throws ServletException, IOException {
+		// 获取页面请求的用户id和课程id
+		int userid = ((UserLoginInfo) req.getSession().getAttribute("user"))
+				.getId();
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		int result = studyService.deleteStudyCourse(userid, courseid);
+		if (result > 0) {
+			req.getRequestDispatcher("views/before/student/student-course.jsp")
+					.forward(req, resp);
 		}
 	}
 
@@ -55,7 +70,6 @@ public class StudyServlet extends HttpServlet {
 	private void toCourse() throws ServletException, IOException {
 		int userid = ((UserLoginInfo) req.getSession().getAttribute("user"))
 				.getId();
-		StudyService studyService = new StudyServiceImpl();
 		List<CourseBase> list = studyService.getCourseBaseByUid(userid);
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("views/before/student/student-course.jsp")

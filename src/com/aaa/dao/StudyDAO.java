@@ -19,4 +19,15 @@ public interface StudyDAO {
 	 * @date 2018年7月23日上午9:25:51
 	 */
 	public List<CourseBase> getCourseBaseByUid(int userid);
+	
+	
+	/**
+	 * @description: 删除该用户该门选课
+	 * @param @param userid
+	 * @param @param courseid
+	 * @param @return   
+	 * @return int 
+	 * @date 2018年7月23日上午10:25:15
+	 */
+	public int deleteStudyCourse(int userid,int courseid);
 }
