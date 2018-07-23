@@ -36,20 +36,20 @@
 		<hr />
 	</div>
 	<div class="teach-course">
-		<c:forEach items="${list}" var="l">
+		<c:forEach items="${list}" var="coursebase">
 		<div class="courses">
 			<div class="studycourse">
-			<img src="${l.courseImg}">
+			<img src="${coursebase.img}">
 			<div class="course-msg">
-				<span class="course-name">${l.courseName}</span><br/>
+				<span class="course-name">${coursebase.cname}</span><br/>
 			</div>
 			<form action="/mooc/before/student/lookcontent" target="_window" class="selectf" method="post">
-				<input type="hidden" name="id" value="${l.id}">
+				<input type="hidden" name="id" value="${coursebase.id}">
 			</form>
 			</div>
 			<form action="/mooc/before/student/deletestudycourse"
 					style="display:inline-block;" target="_window" method="post">
-					<input type="hidden" name="courseid" value="${l.id}">
+					<input type="hidden" name="courseid" value="${coursebase.id}">
 					<button class="btn btn-danger" onclick="return deleteCourse();">删除该课程</button>
 			</form>
 		</div>

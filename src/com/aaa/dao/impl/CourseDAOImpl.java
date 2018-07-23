@@ -26,7 +26,10 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		Object[] params = { id };
 
 		List<CourseBase> list = search(sql, CourseBase.class, params);
-		return list.get(0);
+		if(list!=null)
+			return list.get(0);
+		else
+			return null;
 	}
 
 	@Override
