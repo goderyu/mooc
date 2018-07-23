@@ -36,7 +36,7 @@
 					<a href="/mooc/views/before/register.jsp">注册</a>
 				</c:when>
 				<c:otherwise>
-					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${u}</a>
+					<a class="login" href="/mooc/before/index/person" style="cursor:pointer;">欢迎您：${user.username}</a>
 					|<a href="/mooc/before/login/loginout" style="cursor:pointer;">注销</a>
 				</c:otherwise>
 			</c:choose>

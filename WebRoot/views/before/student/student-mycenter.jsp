@@ -151,7 +151,7 @@
      					$("#passwordinput").html("").css("color","green");
      					$("#updateform").ajaxSubmit(function(data) {	
 						if(data){
-							top.location.href="/mooc/before/login/loginout";
+							top.location.href="/mooc/UserServlet?method=quit";
 						}
 						});
 						return false;

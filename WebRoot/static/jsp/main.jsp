@@ -43,8 +43,8 @@
 					<a href="/mooc/register/home.do">注册</a>
 				</c:when>
 				<c:otherwise>
-					<a class="login" style="cursor:pointer;">欢迎您：${USER.userName}</a>
-					|<a href="/mooc/login/loginout" style="cursor:pointer;">注销</a>
+					<a class="login" style="cursor:pointer;">欢迎您：${user.username}</a>
+					|<a href="/mooc/UserServlet?method=quit" style="cursor:pointer;">注销</a>
 				</c:otherwise>
 			</c:choose>
 		</div>
@@ -60,15 +60,15 @@
 					<img src="img/search.png">
 				</button>
 				<c:choose>
-					<c:when test="${empty USER}">
+					<c:when test="${empty user}">
 						<a class="login" style="cursor:pointer;"
 							href="/mooc/login/tologin">登录&nbsp</a>
 						<span>|</span>
 						<a href="/mooc/register/home.do">注册</a>
 					</c:when>
 					<c:otherwise>
-						<a class="login" style="cursor:pointer;">欢迎您：${USER.userName}</a>
-					|<a href="/mooc/login/loginout" style="cursor:pointer;">注销</a>
+						<a class="login" style="cursor:pointer;">欢迎您：${user.username}</a>
+					|<a href="/mooc/UserServlet?method=quit" style="cursor:pointer;">注销</a>
 					</c:otherwise>
 				</c:choose>
 			</div>

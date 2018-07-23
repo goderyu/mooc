@@ -47,12 +47,12 @@ public class UserServlet extends HttpServlet {
 
 	private void register() throws IOException {
 
-		String userName = req.getParameter("userName");
+		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String telephone = req.getParameter("telephone");
 		// 将从前端获取的表单数据封装在实体中
 		UserLoginInfo userLogin = new UserLoginInfo();
-		userLogin.setUsername(userName);
+		userLogin.setUsername(username);
 		userLogin.setPassword(password);
 		userLogin.setTelephone(telephone);
 		// 定义业务逻辑对象，完成数据访问操作
