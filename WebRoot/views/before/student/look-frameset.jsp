@@ -23,7 +23,7 @@
 			</frameset>
 			<!-- /mooc/views/before/student/look-catalog.jsp -->
 			<!-- /mooc/StudyServlet?method=toLookCatalog -->
-			<frame src="/mooc/StudyServlet?method=toLookCatalog" name="right" scrolling="no" />
+			<frame src="/mooc/StudyServlet?method=toLookCatalog&courseid=${course.id}" name="right" scrolling="no" />
 	</frameset>
 <body>
 </body>

@@ -123,10 +123,11 @@ overflow: hidden;
 			$(".selected").css("background-color","white");
 			$(this).css("background-color","#eee");
 			var index=$(".selected").index(this);
-			var catalogid = $(".selectedcatalog").eq(index).val();
-			var state =$(".levelstate").eq(index).val();
-			top.ltop.location="/mooc/before/student/coursetop?state="+state+"&catalogid="+catalogid;
-			top.down.location="/mooc/before/student/coursetext?state="+state+"&catalogid="+catalogid;
+			// 这里待整合每一章节的学习状态
+			//var catalogid = $(".selectedcatalog").eq(index).val();
+			//var state =$(".levelstate").eq(index).val();
+			//top.ltop.location="/mooc/before/student/coursetop?state="+state+"&catalogid="+catalogid;
+			//top.down.location="/mooc/before/student/coursetext?state="+state+"&catalogid="+catalogid;
 		});
 		
 	</script>

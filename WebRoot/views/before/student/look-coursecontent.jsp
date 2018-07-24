@@ -54,7 +54,7 @@ text-decoration:none;
 			<!-- 这里去一个Servlet，通过传递的courseid获取数据，之后重定向到look-frameset -->
 			<!-- /mooc/views/before/student/look-frameset.jsp -->
 			<!-- /mooc/StudyServlet?method=toLookFrameset -->
-			<form action="/mooc/views/before/student/look-frameset.jsp" method="post" style="display:inline-block;">
+			<form action="/mooc/StudyServlet?method=toLookFrameset&courseid=${course.id}" method="post" style="display:inline-block;">
 				<input type="hidden" id="courseid" name="courseid" value="${course.id}">
 				<button class="editorcontent">查看课程内容</button>
 			</form>

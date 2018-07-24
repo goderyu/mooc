@@ -59,7 +59,7 @@ public class StudyServlet extends HttpServlet {
 	}
 
 	private void toLookCatalog() throws ServletException, IOException {
-		int courseid = Integer.parseInt((String) req.getAttribute("courseid"));
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
 		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
@@ -76,7 +76,11 @@ public class StudyServlet extends HttpServlet {
 	}
 
 	private void toLookFrameset() throws ServletException, IOException {
-
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		CourseBase courseBase = courseService.getCourseBaseById(courseid);
+		req.setAttribute("course", courseBase);
+		req.getRequestDispatcher("views/before/student/look-frameset.jsp")
+				.forward(req, resp);
 	}
 
 	/**
