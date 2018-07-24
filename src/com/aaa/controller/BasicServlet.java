@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aaa.entity.Basicinfo;
-import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.BasicinfoService;
 import com.aaa.service.impl.BasicinfoServiceImpl;
 
@@ -35,9 +34,8 @@ public class BasicServlet extends HttpServlet {
 		req = request;
 		resp = response;
 		String method = req.getParameter("method");
-		int userid = Integer.parseInt(req.getParameter("userid"));
 		if (method.equals("getBasicinfo")) {
-			getBasicinfo(userid);
+			getBasicinfo();
 		} else if (method.equals("updateBasicinfo")) {
 			updateBasicinfo();
 		} else if (method.equals("selectEmail")) {
@@ -51,9 +49,9 @@ public class BasicServlet extends HttpServlet {
 		String card = req.getParameter("userCard");
 		Basicinfo basicinfo = basicinfoService.selectCard(card);
 		if (basicinfo != null) {
-			resp.getWriter().print(true);
+			resp.getWriter().print("true");
 		} else {
-			resp.getWriter().print(false);
+			resp.getWriter().print("false");
 		}
 	}
 
@@ -61,37 +59,23 @@ public class BasicServlet extends HttpServlet {
 		String email = req.getParameter("userEmail");
 		Basicinfo basicinfo = basicinfoService.selectEmail(email);
 		if (basicinfo != null) {
-			resp.getWriter().print(true);
+			resp.getWriter().print("true");
 		} else {
-			resp.getWriter().print(false);
+			resp.getWriter().print("false");
 		}
 	}
 
 	private void updateBasicinfo() throws IOException, ServletException {
 		// 解决中文乱码问题，设置编码格式
 		resp.setCharacterEncoding("utf-8");
-		UserLoginInfo user = (UserLoginInfo) req.getSession().getAttribute(
-				"user");
-		int userid = user.getId();
-		// 这两句获取不到值，都是null
-		String email = req.getParameter("userEmail");
-		String card = req.getParameter("userCard");
 		Basicinfo basicinfo = new Basicinfo();
-		basicinfo.setEmail(email);
-		basicinfo.setCard(card);
+		int userid = Integer.parseInt(req.getParameter("userid"));
+		basicinfo.setEmail(req.getParameter("userEmail"));
+		basicinfo.setCard(req.getParameter("userCard"));
 		basicinfo.setUserid(userid);
 		int result = basicinfoService.updateBasicinfo(basicinfo);
-		if (result > 0) {
-			// resp.getWriter().print("true");
-			// req.setAttribute("userEmail", basicinfo.getEmail());
-			// req.setAttribute("userCard", basicinfo.getCard());
-			getBasicinfo(userid);
-			// req.getRequestDispatcher(
-			// "views/before/student/student-basicinfo.jsp").forward(req,
-			// resp);
-		} else {
-			// resp.getWriter().print("false");
-		}
+		if (result > 0) 
+			getBasicinfo();
 	}
 
 	/**
@@ -102,7 +86,8 @@ public class BasicServlet extends HttpServlet {
 	 * @return void
 	 * @date 2018年7月24日上午10:51:27
 	 */
-	private void getBasicinfo(int userid) throws ServletException, IOException {
+	private void getBasicinfo() throws ServletException, IOException {
+		int userid = Integer.parseInt(req.getParameter("userid"));
 		Basicinfo basicinfo = basicinfoService.getBasicinfo(userid);
 		req.setAttribute("basicinfo", basicinfo);
 		req.getRequestDispatcher("views/before/student/student-basicinfo.jsp")

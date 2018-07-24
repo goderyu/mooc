@@ -23,7 +23,6 @@
 </style>
 </head>
   <body>
-        <form action="/mooc/BasicServlet?method=updateBasicinfo" method="post" id="headPortraitForm" enctype="multipart/form-data">
 		  	 <div class="wrap">
 				  <div class="head">
 						<span class="mycenter">个人中心</span>
@@ -49,6 +48,8 @@
 				  		<div>
 				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">******</span>
 				  		</div>
+				  		<!-- enctype="multipart/form-data" -->
+				   <form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" method="post" id="headPortraitForm" >
 				    	<div>
 				    		<span>常用邮箱：</span><input class="input" id="userEmail"  value="${basicinfo.email}" name="userEmail" placeholder="请输入邮箱"/>
 				    		<span class="hint" id="userEmailinput"></span>
@@ -63,9 +64,10 @@
 				    	<div>
 				    		<input id="sub" class="button" type="submit" value="提交"/> 
 				    	</div> 
+				   </form>
 			      </div>
 		  	 </div>
-	 	</form>
+	 	
 	 	<!-- 修改密码 -->
 	 	<input class="change-2" type="submit" value="修改"/>
 	 	<form action="/mooc/UserServlet?method=updatePassword" onsubmit="return pswcheck()" id="updateform" method="post">
@@ -122,7 +124,7 @@
 				}
 			});
 			
-			/* 密码的显示 */
+			/* 修改密码框的显示 */
 			$(".change-2").click(function(){
 				$(".update-1").show();
 			});
@@ -169,12 +171,12 @@
 				if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($("#userEmail").val())){
 					$("#userEmailinput").html("").remove(); // 移除该标签对象
 					$.post("/mooc/BasicServlet?method=selectEmail",{
-						"userEmail":$("#userEmail").val()
+						userEmail:$("#userEmail").val()
 					},function(data){
-						if(!data){
-							$("#userEmailinput").html("").css("color","green");
-						}else{
+						if(data=='true'){
 							$("#userEmailinput").html("邮箱已占用").css("color","red");
+						}else{
+							$("#userEmailinput").html("").css("color","green");
 						}
 				    });
 				}else{
@@ -187,9 +189,9 @@
 				if(/^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|31)|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}([0-9]|x|X)$/.test($("#userCard").val())){
 					$("#userCardinput").html("").remove(); // 移除该标签对象
 					$.post("/mooc/BasicServlet?method=selectCard",{
-						"userCard":$("#userCard").val()
+						userCard:$("#userCard").val()
 					},function(data){
-						if(!data){
+						if(data!='true'){
 							$("#userCardinput").html("").css("color","green");
 						}else{
 							$("#userCardinput").html("身份证已占用").css("color","red");
