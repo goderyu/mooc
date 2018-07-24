@@ -17,6 +17,8 @@ public class UserServlet extends HttpServlet {
 	// 定义请求和响应变量
 	private HttpServletRequest req;
 	private HttpServletResponse resp;
+	// 定义业务逻辑对象，完成数据访问操作
+	UserService userService = new UserServiceImpl();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -35,6 +37,35 @@ public class UserServlet extends HttpServlet {
 			login();
 		} else if (method.equals("quit")) {
 			quit();
+		} else if (method.equals("selectPassword")) {
+			selectPassword();
+		} else if (method.equals("updatePassword")) {
+			updatePassword();
+		}
+		// selectPassword
+	}
+
+	private void updatePassword() throws IOException {
+		String pwd = req.getParameter("pwd");
+		UserLoginInfo user = (UserLoginInfo) req.getSession().getAttribute(
+				"user");
+		int userid = user.getId();
+		int result = userService.updatePassword(userid, pwd);
+		if(result > 0){
+			resp.getWriter().print("true");
+		} else {
+			resp.getWriter().print("false");
+		}
+	}
+
+	private void selectPassword() throws IOException {
+		int userid = Integer.parseInt(req.getParameter("id"));
+		String pwd = req.getParameter("password");
+		UserLoginInfo userInfo = userService.selectPassword(userid, pwd);
+		if (userInfo != null) {
+			resp.getWriter().print("true");
+		} else {
+			resp.getWriter().print("false");
 		}
 	}
 
@@ -55,8 +86,7 @@ public class UserServlet extends HttpServlet {
 		userLogin.setUsername(username);
 		userLogin.setPassword(password);
 		userLogin.setTelephone(telephone);
-		// 定义业务逻辑对象，完成数据访问操作
-		UserService userService = new UserServiceImpl();
+
 		int result = userService.insertUserLoginInfo(userLogin);
 		// 判断是否插入操作成功
 		if (result > 0) {
@@ -67,7 +97,6 @@ public class UserServlet extends HttpServlet {
 	private void login() throws IOException {
 		String tel = req.getParameter("telephone");
 		String pwd = req.getParameter("password");
-		UserService userService = new UserServiceImpl();
 		// 调用业务层查询操作
 		UserLoginInfo user = userService.selectByTelAndPwd(tel, pwd);
 		if (user != null) {

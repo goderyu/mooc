@@ -13,12 +13,17 @@
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
+	<!-- 在此框架集中也调用Servlet测试一下 -->
 	<frameset name="fra" cols="75%,25%" id="fra" border="10" bordercolor="black" style="height:100%;">
 			<frameset rows="7%,93%" border="0">
-				<frame src="/mooc/views/before/student/look-select.jsp" name="ltop" scrolling="no" />
-				<frame src="/mooc/views/before/student/look-word.jsp" name="down" />
+			<!-- /mooc/views/before/student/look-select.jsp -->
+			<!-- /mooc/views/before/student/look-word.jsp -->
+				<frame src="/mooc/StudyServlet?method=toLookSelect" name="ltop" scrolling="no" />
+				<frame src="/mooc/StudyServlet?method=toLookWord" name="down" />
 			</frameset>
-			<frame src="/mooc/views/before/student/look-catalog.jsp" name="right" scrolling="no" />
+			<!-- /mooc/views/before/student/look-catalog.jsp -->
+			<!-- /mooc/StudyServlet?method=toLookCatalog -->
+			<frame src="/mooc/StudyServlet?method=toLookCatalog" name="right" scrolling="no" />
 	</frameset>
 <body>
 </body>

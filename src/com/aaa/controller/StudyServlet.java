@@ -50,14 +50,40 @@ public class StudyServlet extends HttpServlet {
 			toDelete();
 		} else if (method.equals("getCourseContent")) {
 			getCourseContent();
+		} else if (method.equals("toLookFrameset")) {
+			toLookFrameset();
+		} else if (method.equals("toLookCatalog")) {
+			toLookCatalog();
 		}
+		// toLookFrameset toLookSelect toLookWord toLookCatalog
+	}
+
+	private void toLookCatalog() throws ServletException, IOException {
+		int courseid = Integer.parseInt((String) req.getAttribute("courseid"));
+		CourseBase courseBase = courseService.getCourseBaseById(courseid);
+		req.setAttribute("course", courseBase);
+		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
+		req.setAttribute("firstlist", firstlist);
+		List<List<SecondCatalog>> secondlists = new ArrayList<List<SecondCatalog>>();
+		for (int i = 0; i < firstlist.size(); i++) {
+			List<SecondCatalog> asecondlist = courseService
+					.getSecondCatalog(firstlist.get(i).getId());
+			secondlists.add(asecondlist);
+		}
+		req.setAttribute("secondlists", secondlists);
+		req.getRequestDispatcher("views/before/student/look-catalog.jsp")
+				.forward(req, resp);
+	}
+
+	private void toLookFrameset() throws ServletException, IOException {
+
 	}
 
 	/**
 	 * @description: 在学习课程页面显示一级二级目录事件
 	 * @param @throws ServletException
-	 * @param @throws IOException   
-	 * @return void 
+	 * @param @throws IOException
+	 * @return void
 	 * @date 2018年7月23日下午4:58:46
 	 */
 	private void getCourseContent() throws ServletException, IOException {

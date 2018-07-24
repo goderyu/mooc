@@ -23,7 +23,7 @@
 </style>
 </head>
   <body>
-        <form action="/mooc/before/upstudent/toupdate" method="post" id="headPortraitForm" enctype="multipart/form-data">
+        <form action="/mooc/BasicServlet?method=updateBasicinfo" method="post" id="headPortraitForm" enctype="multipart/form-data">
 		  	 <div class="wrap">
 				  <div class="head">
 						<span class="mycenter">个人中心</span>
@@ -33,40 +33,32 @@
 			  		    <div> 
 				  			<span >头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
 				  			<div>
-								<input id="userHeadPortrait" value="${USER.headImg}" name="file" type="file" class="file"/>
-								<input type="hidden" name="headimg" value="${USER.headImg}"/>		  
+								<input id="userHeadPortrait" value="${user.headImg}" name="file" type="file" class="file"/>
+								<input type="hidden" name="headimg" value="${user.headImg}"/>		  
 				  			</div>
-							<div class="img"><img id="headPortraitimg" src="${USER.headImg}"/></div>
+							<div class="img"><img id="headPortraitimg" src="${user.headImg}"/></div>
 				  		</div>
 				  		<div>
-				  			<input name="userId" value="${id}" type="hidden"/>
-				  			<input name="id" value="${id}" type="hidden"/>
-				  			<span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><span class="nickname">${USER.userName}</span>
+				  			<input name="userid" value="${user.id}" type="hidden"/>
+				  			<%-- <input name="id" value="${user.id}" type="hidden"/> --%>
+				  			<span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><span class="nickname">${user.username}</span>
 				  		</div>
 				  		<div>
-				  			<span>手&nbsp;机&nbsp;号：</span><span class="nickname">${USER.telephone}</span>
+				  			<span>手&nbsp;机&nbsp;号：</span><span class="nickname">${user.telephone}</span>
 				  		</div>
 				  		<div>
 				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">******</span>
 				  		</div>
 				    	<div>
-				    		<span>常用邮箱：</span><input class="input" id="userEmail" value="${user.userEmail}" name="userEmail" placeholder="请输入邮箱"/>
-				    		<span class="hint-0" id="userEmailinput"></span>
+				    		<span>常用邮箱：</span><input class="input" id="userEmail"  value="${basicinfo.email}" name="userEmail" placeholder="请输入邮箱"/>
+				    		<span class="hint" id="userEmailinput"></span>
 				    	</div>
-				    	<c:choose>
-				    	<c:when test="${empty user.userCard}">
-				    	<div>
-				    		<span>身&nbsp;&nbsp;份&nbsp;证：</span><input class="input" id="userCard" value="${user.userCard}" name="userCard" placeholder="请输入身份证" />
-				    		<span class="hint" id="userCardinput"></span>
-				    	</div>
-				    	</c:when>
-				    	<c:otherwise>
-				    		<div>
-				    			<span>身&nbsp;&nbsp;份&nbsp;证：</span>${user.userCard}
-				    			<span class="hint" id="userCardinput"></span>
-				    		</div>
-				    	</c:otherwise>
-				    	</c:choose>
+				    	
+			    		<div>
+			    			<span>身&nbsp;&nbsp;份&nbsp;证：</span><input class="input" id="userCard"  value="${basicinfo.card}" name="userCard" placeholder="请输入身份证号"/>
+			    			<span class="hint" id="userCardinput"></span>
+			    		</div>
+				    	
 				    	<span id="submit" class="error"></span>
 				    	<div>
 				    		<input id="sub" class="button" type="submit" value="提交"/> 
@@ -76,15 +68,15 @@
 	 	</form>
 	 	<!-- 修改密码 -->
 	 	<input class="change-2" type="submit" value="修改"/>
-	 	<form action="/mooc/before/upstudent/updataPassword" onsubmit="return pswcheck()" id="updateform" method="post">
+	 	<form action="/mooc/UserServlet?method=updatePassword" onsubmit="return pswcheck()" id="updateform" method="post">
 			<div class="update-1">
 				<div>
-					初始密码：<input type="password" id="password" class="input-2" required="required"/>
+					初始密码：<input type="password" id="password" name="password" class="input-2" required="required"/>
 					<span class="span" id="passwordinput"></span>
 				</div>
-				<input name="id" value="${id}" type="hidden">
+				<input name="userid" value="${user.id}" type="hidden">
 				<div class="password">
-					新&nbsp;密&nbsp;码：<input type="password" name="password" id="pwd" class="input-2" required="required"/>
+					新&nbsp;密&nbsp;码：<input type="password" id="pwd" name="pwd" class="input-2" required="required"/>
 					<span id="pwdinput"></span>
 				</div>
 				<div>
@@ -137,11 +129,11 @@
 			
 			
      		function pswcheck(){
-     			$.post("/mooc//before/upstudent/selectPassword",{
-     				passWord:$("#password").val(),
-     				id:'${user.userId}'
+     			$.post("/mooc/UserServlet?method=selectPassword",{
+     				"password":$("#password").val(),
+     				"id":'${user.id}'
      			},function(data){
-     				if(!data){
+     				if(data!='true'){
      					$("#passwordinput").html("密码输入错误").css("color","red");
      					$("#pwd").val("");
      					$("#passw").val("");
@@ -150,7 +142,8 @@
      				}else{
      					$("#passwordinput").html("").css("color","green");
      					$("#updateform").ajaxSubmit(function(data) {	
-						if(data){
+						if(data=='true'){
+							alert('密码修改成功！您需重新登录。');
 							top.location.href="/mooc/UserServlet?method=quit";
 						}
 						});
@@ -174,8 +167,9 @@
 			/* 邮箱 */
 			$("#userEmail").blur(function(){
 				if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($("#userEmail").val())){
-					$.post("/mooc/before/upstudent/selectUserEmail",{
-						userEmail:$("#userEmail").val()
+					$("#userEmailinput").html("").remove(); // 移除该标签对象
+					$.post("/mooc/BasicServlet?method=selectEmail",{
+						"userEmail":$("#userEmail").val()
 					},function(data){
 						if(!data){
 							$("#userEmailinput").html("").css("color","green");
@@ -191,8 +185,9 @@
 			/*身份证 */
 			$("#userCard").blur(function(){
 				if(/^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|31)|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}([0-9]|x|X)$/.test($("#userCard").val())){
-					$.post("/mooc/before/upstudent/selectUserCard",{
-						userCard:$("#userCard").val()
+					$("#userCardinput").html("").remove(); // 移除该标签对象
+					$.post("/mooc/BasicServlet?method=selectCard",{
+						"userCard":$("#userCard").val()
 					},function(data){
 						if(!data){
 							$("#userCardinput").html("").css("color","green");

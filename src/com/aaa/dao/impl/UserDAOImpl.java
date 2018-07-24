@@ -30,8 +30,29 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 		String sql = "select id,headImg,username,telephone,password,state from user_login_info where telephone=? and password=?";
 		Object[] params = { tel, pwd };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
-		return list.get(0);
+		if (list.size() > 0)
+			return list.get(0);
+		else
+			return null;
 
+	}
+
+	@Override
+	public int updatePassword(int userid, String pwd) {
+		String sql = "update user_login_info set password=? where id=?";
+		Object[] params = { pwd, userid };
+		return savaOrUpdate(sql, params);
+	}
+
+	@Override
+	public UserLoginInfo selectPassword(int userid, String pwd) {
+		String sql = "select * from user_login_info where id=? and password=?";
+		Object[] params = { userid, pwd };
+		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
+		if (list.size() > 0)
+			return list.get(0);
+		else
+			return null;
 	}
 
 }

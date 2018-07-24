@@ -84,19 +84,19 @@ overflow: hidden;
 		<div class="tittle">目录</div>
 		<span class="line"></span><br>
 		<div class="catalog-content">
-			<c:forEach items="${list}" var="firstl" varStatus="fcount">
+			<c:forEach items="${firstlist}" var="firstl" varStatus="fcount">
 				<div class="first-level " >
 					<div class="first-level-text selected">
 						<img src="img/course/level1.png" ><b>${fcount.count}</b><span
-							class="levelname">${firstl.catalogName}</span>
+							class="levelname">${firstl.catalogname}</span>
 						<input class="selectedcatalog" type="hidden" value="${firstl.id}">
 						<input class="levelstate"  type="hidden" value="1">
 					</div>
-					<c:forEach items="${list.get(fcount.count-1).courseSecondCatalog}"
+					<c:forEach items="${secondlists.get(fcount.count-1)}"
 						var="secondl" varStatus="scount">
 						<div class="second-level selected" >
 							<b>${fcount.count}.${scount.count}</b><img
-								src="img/course/level2.png"><span class="levelname">${secondl.scatalogName}</span>
+								src="img/course/level2.png"><span class="levelname">${secondl.subcatalogname}</span>
 							<input class="selectedcatalog" type="hidden"  value="${secondl.id}">
 						<input class="levelstate" type="hidden" value="2">
 						</div>
@@ -117,7 +117,7 @@ overflow: hidden;
 				$('#fra', window.parent.document).attr("cols", "75%,25%");
 				$(".ljt").text(">");
 			}
-		})
+		});
 		$(".selected").eq(0).css("background-color","#eee");
 		$(".selected").click(function(){
 			$(".selected").css("background-color","white");
@@ -127,7 +127,7 @@ overflow: hidden;
 			var state =$(".levelstate").eq(index).val();
 			top.ltop.location="/mooc/before/student/coursetop?state="+state+"&catalogid="+catalogid;
 			top.down.location="/mooc/before/student/coursetext?state="+state+"&catalogid="+catalogid;
-		})
+		});
 		
 	</script>
 </body>

@@ -19,4 +19,14 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectByTelAndPwd(tel, pwd);
 	}
 
+	@Override
+	public int updatePassword(int userid, String pwd) {
+		return userDAO.updatePassword(userid, pwd);
+	}
+
+	@Override
+	public UserLoginInfo selectPassword(int userid, String pwd) {
+		return userDAO.selectPassword(userid, pwd);
+	}
+
 }

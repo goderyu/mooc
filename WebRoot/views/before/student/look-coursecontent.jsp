@@ -51,6 +51,9 @@ text-decoration:none;
 		</div>
 		<div class="catalog">
 			<div class="tittle">目录</div>
+			<!-- 这里去一个Servlet，通过传递的courseid获取数据，之后重定向到look-frameset -->
+			<!-- /mooc/views/before/student/look-frameset.jsp -->
+			<!-- /mooc/StudyServlet?method=toLookFrameset -->
 			<form action="/mooc/views/before/student/look-frameset.jsp" method="post" style="display:inline-block;">
 				<input type="hidden" id="courseid" name="courseid" value="${course.id}">
 				<button class="editorcontent">查看课程内容</button>
@@ -167,7 +170,7 @@ text-decoration:none;
 						      document.getElementById('discussfield').innerHTML=function(){
 						          var arr = [],
 						          thisData = data.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-						          var user = "${USER.id}";
+						          var user = "${user.id}";
 						          layui.each(thisData, function(index,item){
 						              var topicID = item.id;//话题id
 						              var Posting = item.uid;
@@ -347,7 +350,7 @@ text-decoration:none;
 						      document.getElementById('discusslist').innerHTML=function(){
 						          var arr = [],
 						          thisData = reply.concat().splice(obj.curr*obj.limit - obj.limit, obj.limit);
-						          var user = "${USER.id}";
+						          var user = "${user.id}";
 						          layui.each(thisData, function(index,item){
 						              var PostingHTML;
 						              var Posting = item.uid;

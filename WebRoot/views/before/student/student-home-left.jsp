@@ -42,7 +42,7 @@
 					<img  src="img/course/ketangn.png"><a href="/mooc/StudyServlet?method=toCourse" target="right" class="menu-select">课堂</a>
 				</li>
 				<li>
-					<img  src="img/course/ketangn.png"><a href="/mooc/BasicinfoServlet?method=getBasicUser&userid=${user.id}" target="right" class="menu-select">账号管理</a>
+					<img  src="img/course/ketangn.png"><a href="/mooc/BasicServlet?method=getBasicinfo&userid=${user.id}" target="right" class="menu-select">账号管理</a>
 				</li>
 			</ul>
 		</div>
