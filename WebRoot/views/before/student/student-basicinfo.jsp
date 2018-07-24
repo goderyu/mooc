@@ -70,7 +70,7 @@
 	 	
 	 	<!-- 修改密码 -->
 	 	<input class="change-2" type="submit" value="修改"/>
-	 	<form action="/mooc/UserServlet?method=updatePassword" onsubmit="return pswcheck()" id="updateform" method="post">
+	 	<form action="/mooc/UserServlet?method=updatePassword" onSubmit="return pswcheck()" id="updateform" method="post">
 			<div class="update-1">
 				<div>
 					初始密码：<input type="password" id="password" name="password" class="input-2" required="required"/>
@@ -129,8 +129,18 @@
 				$(".update-1").show();
 			});
 			
-			
+
+     		
      		function pswcheck(){
+         		/* 两次密码是否一致 */
+     			var pwd = $("#pwd").val();
+     			var passw = $("#passw").val();
+     			if(pwd != passw){
+     				$("#passwinput").html("两次密码不一致").css("color","red");
+     				return false;
+     			}else{
+     				$("#passwinput").html("").css("color","green");
+     			}
      			$.post("/mooc/UserServlet?method=selectPassword",{
      				"password":$("#password").val(),
      				"id":'${user.id}'
@@ -149,23 +159,12 @@
 							top.location.href="/mooc/UserServlet?method=quit";
 						}
 						});
-						return false;
+						return true;
      				}
      			});
      			return false;
      		}
-     		/* 两次密码是否一致 */
-     		$("#passw").blur(function(){
-     			var pwd = $("#pwd").val();
-     			var passw = $("#passw").val();
-     			if(pwd != passw){
-     				$("#passwinput").html("两次密码不一致").css("color","red");
-     			}else{
-     				$("#passwinput").html("").css("color","green");
-     			}
-     		});
-			
-			
+
 			/* 邮箱 */
 			$("#userEmail").blur(function(){
 				if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($("#userEmail").val())){

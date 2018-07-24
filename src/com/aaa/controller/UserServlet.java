@@ -42,7 +42,6 @@ public class UserServlet extends HttpServlet {
 		} else if (method.equals("updatePassword")) {
 			updatePassword();
 		}
-		// selectPassword
 	}
 
 	private void updatePassword() throws IOException {
