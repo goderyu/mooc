@@ -33,26 +33,26 @@ public class BasicinfoDAOImpl extends BaseDAO implements BasicinfoDAO {
 	}
 
 	@Override
-	public Basicinfo selectEmail(String email) {
-		String sql = "select * from user_basic_info where email=?";
-		Object[] params = { email };
+	public boolean selectEmail(String email, int userid) {
+		String sql = "select id from user_basic_info where email=? and userid != ?";
+		Object[] params = { email, userid };
 		List<Basicinfo> list = search(sql, Basicinfo.class, params);
 		if (list.size() > 0) {
-			return list.get(0);
+			return true;
 		} else {
-			return null;
+			return false;
 		}
 	}
 
 	@Override
-	public Basicinfo selectCard(String card) {
-		String sql = "select * from user_basic_info where card=?";
-		Object[] params = { card };
+	public boolean selectCard(String card, int userid) {
+		String sql = "select id from user_basic_info where card=? and userid != ?";
+		Object[] params = { card, userid };
 		List<Basicinfo> list = search(sql, Basicinfo.class, params);
 		if (list.size() > 0) {
-			return list.get(0);
+			return true;
 		} else {
-			return null;
+			return false;
 		}
 	}
 

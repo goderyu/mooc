@@ -5,7 +5,7 @@ import com.aaa.entity.Basicinfo;
 /**
  * @author goderyu
  * @date 2018年7月24日 上午9:57:35
- * @description TODO
+ * @description 用户个人信息dao层接口
  */
 public interface BasicinfoDAO {
 	/**
@@ -30,17 +30,17 @@ public interface BasicinfoDAO {
 	 * @description: 查找用户信息表中是否已存在此邮箱
 	 * @param @param email 电子邮箱地址
 	 * @param @return
-	 * @return Basicinfo
+	 * @return boolean
 	 * @date 2018年7月24日下午1:25:46
 	 */
-	public Basicinfo selectEmail(String email);
+	public boolean selectEmail(String email, int userid);
 
 	/**
 	 * @description: 查找用户信息表中是否已存在此身份证
 	 * @param @param card 身份证号
 	 * @param @return
-	 * @return Basicinfo
+	 * @return boolean
 	 * @date 2018年7月24日下午1:26:22
 	 */
-	public Basicinfo selectCard(String card);
+	public boolean selectCard(String card, int userid);
 }

@@ -47,41 +47,48 @@ public class BasicServlet extends HttpServlet {
 
 	/**
 	 * @description: 查询更新的身份证号是否已在库
-	 * @param @throws IOException   
-	 * @return void 
+	 * @param @throws IOException
+	 * @return void
 	 * @date 2018年7月25日上午8:34:10
 	 */
 	private void selectCard() throws IOException {
 		String card = req.getParameter("userCard");
-		Basicinfo basicinfo = basicinfoService.selectCard(card);
-		if (basicinfo != null) {
+		int userid = Integer.parseInt(req.getParameter("userid"));
+		boolean flag = basicinfoService.selectCard(card, userid);
+		if (flag) {
 			resp.getWriter().print("true");
+			System.out.println("true");
 		} else {
 			resp.getWriter().print("false");
+			System.out.println("false");
 		}
 	}
 
 	/**
 	 * @description: 查询更新的电子邮箱是否已在库
-	 * @param @throws IOException   
-	 * @return void 
+	 * @param @throws IOException
+	 * @return void
 	 * @date 2018年7月25日上午8:34:46
 	 */
 	private void selectEmail() throws IOException {
 		String email = req.getParameter("userEmail");
-		Basicinfo basicinfo = basicinfoService.selectEmail(email);
-		if (basicinfo != null) {
+		int userid = Integer.parseInt(req.getParameter("userid"));
+		boolean flag = basicinfoService.selectEmail(email, userid);
+		if (flag) {
 			resp.getWriter().print("true");
+			System.out.println("true");
 		} else {
 			resp.getWriter().print("false");
+			System.out.println("false");
 		}
+
 	}
 
 	/**
 	 * @description: 更新账户信息事件
 	 * @param @throws IOException
-	 * @param @throws ServletException   
-	 * @return void 
+	 * @param @throws ServletException
+	 * @return void
 	 * @date 2018年7月25日上午8:35:00
 	 */
 	private void updateBasicinfo() throws IOException, ServletException {
@@ -93,7 +100,7 @@ public class BasicServlet extends HttpServlet {
 		basicinfo.setCard(req.getParameter("userCard"));
 		basicinfo.setUserid(userid);
 		int result = basicinfoService.updateBasicinfo(basicinfo);
-		if (result > 0) 
+		if (result > 0)
 			getBasicinfo();
 	}
 

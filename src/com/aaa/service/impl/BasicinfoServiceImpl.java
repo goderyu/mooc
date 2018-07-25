@@ -25,13 +25,13 @@ public class BasicinfoServiceImpl implements BasicinfoService {
 	}
 
 	@Override
-	public Basicinfo selectEmail(String email) {
-		return basicinfoDAO.selectEmail(email);
+	public boolean selectEmail(String email, int userid) {
+		return basicinfoDAO.selectEmail(email, userid);
 	}
 
 	@Override
-	public Basicinfo selectCard(String card) {
-		return basicinfoDAO.selectCard(card);
+	public boolean selectCard(String card, int userid) {
+		return basicinfoDAO.selectCard(card, userid);
 	}
 
 }

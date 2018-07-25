@@ -52,12 +52,12 @@
 				   <form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" method="post" id="headPortraitForm" >
 				    	<div>
 				    		<span>常用邮箱：</span><input class="input" id="userEmail"  value="${basicinfo.email}" name="userEmail" placeholder="请输入邮箱"/>
-				    		<span class="hint" id="userEmailinput"></span>
+				    		<span id="userEmailinput"></span>
 				    	</div>
 				    	
 			    		<div>
 			    			<span>身&nbsp;&nbsp;份&nbsp;证：</span><input class="input" id="userCard"  value="${basicinfo.card}" name="userCard" placeholder="请输入身份证号"/>
-			    			<span class="hint" id="userCardinput"></span>
+			    			<span id="userCardinput"></span>
 			    		</div>
 				    	
 				    	<span id="submit" class="error"></span>
@@ -168,9 +168,10 @@
 			/* 邮箱 */
 			$("#userEmail").blur(function(){
 				if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($("#userEmail").val())){
-					$("#userEmailinput").html("").remove(); // 移除该标签对象
+					$("#userEmailinput").html(""); // 移除该标签对象
 					$.post("/mooc/BasicServlet?method=selectEmail",{
-						userEmail:$("#userEmail").val()
+						userEmail:$("#userEmail").val(),
+						userid:'${user.id}'
 					},function(data){
 						if(data=='true'){
 							$("#userEmailinput").html("邮箱已占用").css("color","red");
@@ -186,9 +187,10 @@
 			/*身份证 */
 			$("#userCard").blur(function(){
 				if(/^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|31)|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}([0-9]|x|X)$/.test($("#userCard").val())){
-					$("#userCardinput").html("").remove(); // 移除该标签对象
+					$("#userCardinput").html("").css("color","green"); // 移除该标签对象
 					$.post("/mooc/BasicServlet?method=selectCard",{
-						userCard:$("#userCard").val()
+						userCard:$("#userCard").val(),
+						userid:'${user.id}'
 					},function(data){
 						if(data!='true'){
 							$("#userCardinput").html("").css("color","green");
