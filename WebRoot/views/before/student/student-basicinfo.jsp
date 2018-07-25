@@ -49,7 +49,7 @@
 				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">******</span>
 				  		</div>
 				  		<!-- enctype="multipart/form-data" -->
-				   <form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" method="post" id="headPortraitForm" >
+				   <form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" onSubmit="return infocheck()" method="post" id="headPortraitForm" >
 				    	<div>
 				    		<span>常用邮箱：</span><input class="input" id="userEmail"  value="${basicinfo.email}" name="userEmail" placeholder="请输入邮箱"/>
 				    		<span id="userEmailinput"></span>
@@ -128,8 +128,15 @@
 			$(".change-2").click(function(){
 				$(".update-1").show();
 			});
-			
-
+			/* 提交修改个人信息的检查 */
+			function infocheck(){
+				if($("#userEmailinput")!="" && $("#userCardinput")!=""){
+					alert('您有非正规操作，请修改您的个人信息');
+					return false;
+				}else{
+					return true;
+				}
+			}
      		
      		function pswcheck(){
          		/* 两次密码是否一致 */

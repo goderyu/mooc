@@ -57,10 +57,8 @@ public class BasicServlet extends HttpServlet {
 		boolean flag = basicinfoService.selectCard(card, userid);
 		if (flag) {
 			resp.getWriter().print("true");
-			System.out.println("true");
 		} else {
 			resp.getWriter().print("false");
-			System.out.println("false");
 		}
 	}
 
@@ -76,10 +74,8 @@ public class BasicServlet extends HttpServlet {
 		boolean flag = basicinfoService.selectEmail(email, userid);
 		if (flag) {
 			resp.getWriter().print("true");
-			System.out.println("true");
 		} else {
 			resp.getWriter().print("false");
-			System.out.println("false");
 		}
 
 	}
