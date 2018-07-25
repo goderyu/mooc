@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserLoginInfo selectPassword(int userid, String pwd) {
+	public boolean selectPassword(int userid, String pwd) {
 		return userDAO.selectPassword(userid, pwd);
 	}
 

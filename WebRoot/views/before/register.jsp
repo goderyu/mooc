@@ -210,11 +210,11 @@
 					    url:"/mooc/UserServlet?method=register",
 					    type:"post",
 					    data:$("#formr").serialize(),//serialize():提交表单
-					    dataType:"text",
+					    dataType:"json",
 					    success:function(data){
 					    //通过服务器返回的数据判断
 					    //若返回的有执行成功的数据，则跳转到登录页面
-					 if(data=='true'){
+					 if(data){
 					 	window.location.href="/mooc/views/before/login.jsp" 
 					 }
 					  //  若返回的没有执行成功的数据，在当前页面	

@@ -115,8 +115,6 @@ public class StudyServlet extends HttpServlet {
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
-
-		
 		req.getRequestDispatcher("views/before/student/look-frameset.jsp")
 				.forward(req, resp);
 	}

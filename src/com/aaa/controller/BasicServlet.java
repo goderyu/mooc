@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.aaa.entity.Basicinfo;
 import com.aaa.service.BasicinfoService;
 import com.aaa.service.impl.BasicinfoServiceImpl;
+import com.aaa.util.AjaxWriter;
 
 /**
  * @author goderyu
@@ -55,11 +56,7 @@ public class BasicServlet extends HttpServlet {
 		String card = req.getParameter("userCard");
 		int userid = Integer.parseInt(req.getParameter("userid"));
 		boolean flag = basicinfoService.selectCard(card, userid);
-		if (flag) {
-			resp.getWriter().print("true");
-		} else {
-			resp.getWriter().print("false");
-		}
+		AjaxWriter.write(resp, flag);
 	}
 
 	/**
@@ -72,12 +69,7 @@ public class BasicServlet extends HttpServlet {
 		String email = req.getParameter("userEmail");
 		int userid = Integer.parseInt(req.getParameter("userid"));
 		boolean flag = basicinfoService.selectEmail(email, userid);
-		if (flag) {
-			resp.getWriter().print("true");
-		} else {
-			resp.getWriter().print("false");
-		}
-
+		AjaxWriter.write(resp, flag);
 	}
 
 	/**

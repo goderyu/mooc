@@ -130,7 +130,9 @@
 			});
 			/* 提交修改个人信息的检查 */
 			function infocheck(){
-				if($("#userEmailinput")!="" && $("#userCardinput")!=""){
+				var emailinput = document.getElementById("userEmailinput").innerHTML;
+				var cardinput = document.getElementById("userCardinput").innerHTML;
+				if(emailinput!="" || cardinput!=""){
 					alert('您有非正规操作，请修改您的个人信息');
 					return false;
 				}else{
@@ -146,20 +148,20 @@
      				$("#passwinput").html("两次密码不一致").css("color","red");
      				return false;
      			}else{
-     				$("#passwinput").html("").css("color","green");
+     				$("#passwinput").html("");
      			}
      			$.post("/mooc/UserServlet?method=selectPassword",{
      				"password":$("#password").val(),
      				"id":'${user.id}'
      			},function(data){
-     				if(data!='true'){
+     				if(!data){
      					$("#passwordinput").html("密码输入错误").css("color","red");
      					$("#pwd").val("");
      					$("#passw").val("");
      					$("#password").val("");
      					return false;
      				}else{
-     					$("#passwordinput").html("").css("color","green");
+     					$("#passwordinput").html("");
      					$("#updateform").ajaxSubmit(function(data) {	
 						if(data=='true'){
 							alert('密码修改成功！您需重新登录。');
@@ -180,10 +182,10 @@
 						userEmail:$("#userEmail").val(),
 						userid:'${user.id}'
 					},function(data){
-						if(data=='true'){
+						if(data){
 							$("#userEmailinput").html("邮箱已占用").css("color","red");
 						}else{
-							$("#userEmailinput").html("").css("color","green");
+							$("#userEmailinput").html("");
 						}
 				    });
 				}else{
@@ -194,15 +196,15 @@
 			/*身份证 */
 			$("#userCard").blur(function(){
 				if(/^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|31)|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}([0-9]|x|X)$/.test($("#userCard").val())){
-					$("#userCardinput").html("").css("color","green"); // 移除该标签对象
+					$("#userCardinput").html(""); // 移除该标签对象
 					$.post("/mooc/BasicServlet?method=selectCard",{
 						userCard:$("#userCard").val(),
 						userid:'${user.id}'
 					},function(data){
-						if(data!='true'){
-							$("#userCardinput").html("").css("color","green");
-						}else{
+						if(data){
 							$("#userCardinput").html("身份证已占用").css("color","red");
+						}else{
+							$("#userCardinput").html("");
 						}
 					});
 				}else{

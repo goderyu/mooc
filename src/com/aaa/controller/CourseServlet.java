@@ -15,6 +15,7 @@ import com.aaa.entity.SecondCatalog;
 import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.CourseService;
 import com.aaa.service.impl.CourseServiceImpl;
+import com.aaa.util.AjaxWriter;
 import com.alibaba.fastjson.JSON;
 
 public class CourseServlet extends HttpServlet {
@@ -67,8 +68,7 @@ public class CourseServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		List<SecondCatalog> list = courseService.getSecondCatalog(Integer
 				.parseInt(id));
-		String json = JSON.toJSONString(list);
-		resp.getWriter().print(json);
+		AjaxWriter.write(resp, list);
 	}
 
 	/**
@@ -83,8 +83,7 @@ public class CourseServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		List<FirstCatalog> list = courseService.getFirstCatalog(Integer
 				.parseInt(id));
-		String json = JSON.toJSONString(list);
-		resp.getWriter().print(json);
+		AjaxWriter.write(resp, list);
 	}
 
 	private void getOneCourseDetail() throws ServletException, IOException {

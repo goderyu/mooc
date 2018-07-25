@@ -39,8 +39,8 @@ public interface UserDAO {
 	 * @param @param userid 用户id
 	 * @param @param pwd 用户原始密码
 	 * @param @return
-	 * @return UserLoginInfo
+	 * @return boolean
 	 * @date 2018年7月24日上午10:54:53
 	 */
-	public UserLoginInfo selectPassword(int userid, String pwd);
+	public boolean selectPassword(int userid, String pwd);
 }

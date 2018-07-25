@@ -45,14 +45,11 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	}
 
 	@Override
-	public UserLoginInfo selectPassword(int userid, String pwd) {
+	public boolean selectPassword(int userid, String pwd) {
 		String sql = "select * from user_login_info where id=? and password=?";
 		Object[] params = { userid, pwd };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
-		if (list.size() > 0)
-			return list.get(0);
-		else
-			return null;
+		return list.size() > 0 ? true : false;
 	}
 
 }
