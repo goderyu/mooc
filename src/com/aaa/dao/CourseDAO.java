@@ -3,6 +3,7 @@ package com.aaa.dao;
 import java.util.List;
 
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.CourseFile;
 import com.aaa.entity.FirstCatalog;
 import com.aaa.entity.SecondCatalog;
 
@@ -57,4 +58,13 @@ public interface CourseDAO {
 	 * @date 2018年7月20日下午5:32:01
 	 */
 	public int updateCount(int courseid);
+	
+	/**
+	 * @description: 获取课程文档的dao层接口
+	 * @param @param courseid
+	 * @param @return   
+	 * @return List<CourseFile> 
+	 * @date 2018年7月25日上午10:06:34
+	 */
+	public List<CourseFile> getCourseFile(int courseid);
 }

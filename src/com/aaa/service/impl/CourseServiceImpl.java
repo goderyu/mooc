@@ -5,6 +5,7 @@ import java.util.List;
 import com.aaa.dao.CourseDAO;
 import com.aaa.dao.impl.CourseDAOImpl;
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.CourseFile;
 import com.aaa.entity.FirstCatalog;
 import com.aaa.entity.SecondCatalog;
 import com.aaa.service.CourseService;
@@ -45,6 +46,11 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public int updateCount(int courseid) {
 		return courseDAO.updateCount(courseid);
+	}
+
+	@Override
+	public List<CourseFile> getCourseFile(int courseid) {
+		return courseDAO.getCourseFile(courseid);
 	}
 
 }

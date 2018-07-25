@@ -5,6 +5,7 @@ import java.util.List;
 import com.aaa.dao.BaseDAO;
 import com.aaa.dao.CourseDAO;
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.CourseFile;
 import com.aaa.entity.FirstCatalog;
 import com.aaa.entity.SecondCatalog;
 
@@ -68,6 +69,17 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		String sql = "update coursebase set count=count+1 where id=?";
 		Object[] params = { courseid };
 		return savaOrUpdate(sql, params);
+	}
+
+	@Override
+	public List<CourseFile> getCourseFile(int courseid) {
+		String sql = "select id,courseid,filedate,filename,filesrc from fileku where courseid=?";
+		Object[] params = { courseid };
+		List<CourseFile> list = search(sql, CourseFile.class, params);
+		if (list.size() > 0)
+			return list;
+		else
+			return null;
 	}
 
 }

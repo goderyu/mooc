@@ -18,7 +18,7 @@
 			<frameset rows="7%,93%" border="0">
 			<!-- /mooc/views/before/student/look-select.jsp -->
 			<!-- /mooc/views/before/student/look-word.jsp -->
-				<frame src="/mooc/StudyServlet?method=toLookSelect" name="ltop" scrolling="no" />
+				<frame src="/mooc/views/before/student/look-select.jsp?course=${course}" name="ltop" scrolling="no" />
 				<frame src="/mooc/StudyServlet?method=toLookWord" name="down" />
 			</frameset>
 			<!-- /mooc/views/before/student/look-catalog.jsp -->

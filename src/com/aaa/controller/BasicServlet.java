@@ -14,7 +14,7 @@ import com.aaa.service.impl.BasicinfoServiceImpl;
 /**
  * @author goderyu
  * @date 2018年7月24日 上午9:52:31
- * @description TODO
+ * @description 控制学生账户信息的Servlet
  */
 public class BasicServlet extends HttpServlet {
 
@@ -45,6 +45,12 @@ public class BasicServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @description: 查询更新的身份证号是否已在库
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月25日上午8:34:10
+	 */
 	private void selectCard() throws IOException {
 		String card = req.getParameter("userCard");
 		Basicinfo basicinfo = basicinfoService.selectCard(card);
@@ -55,6 +61,12 @@ public class BasicServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @description: 查询更新的电子邮箱是否已在库
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月25日上午8:34:46
+	 */
 	private void selectEmail() throws IOException {
 		String email = req.getParameter("userEmail");
 		Basicinfo basicinfo = basicinfoService.selectEmail(email);
@@ -65,6 +77,13 @@ public class BasicServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @description: 更新账户信息事件
+	 * @param @throws IOException
+	 * @param @throws ServletException   
+	 * @return void 
+	 * @date 2018年7月25日上午8:35:00
+	 */
 	private void updateBasicinfo() throws IOException, ServletException {
 		// 解决中文乱码问题，设置编码格式
 		resp.setCharacterEncoding("utf-8");

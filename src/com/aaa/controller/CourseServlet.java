@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aaa.entity.CourseBase;
+import com.aaa.entity.CourseFile;
 import com.aaa.entity.FirstCatalog;
 import com.aaa.entity.SecondCatalog;
 import com.aaa.entity.UserLoginInfo;
@@ -41,7 +42,17 @@ public class CourseServlet extends HttpServlet {
 			getFirstCatalogInfo();
 		} else if (method.equals("getSecondCatalogInfo")) {
 			getSecondCatalogInfo();
+		} else if (method.equals("getCourseFile")) {
+			getCourseFile();
 		}
+	}
+
+	private void getCourseFile() throws ServletException, IOException {
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		List<CourseFile> list = courseService.getCourseFile(courseid);
+		req.setAttribute("cid", courseid);
+		req.setAttribute("list", list);
+		req.getRequestDispatcher("/views/before/student/student-ziliaogl.jsp").forward(req, resp);
 	}
 
 	/**

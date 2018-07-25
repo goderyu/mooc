@@ -69,7 +69,7 @@ th {
 </head>
 <body>
 	<jsp:include page="/static/jsp/header.jsp"></jsp:include>
-	<form action="/mooc/views/before/student/look-coursecontent.jsp" 
+	<form action="/mooc/StudyServlet?method=getCourseContent&courseid=${cid}" 
 		method="post" style="display:inline-block;">
 		<button class="btn btn-success add-btn">返回课程目录</button>
 	</form>
@@ -87,12 +87,12 @@ th {
 			<c:forEach items="${list}" var="l" varStatus="count">
 				<tr>
 					<td>${count.count}</td>
-					<td class="fileName">${l.fileName}</td>
-					<td><f:parseDate value="${l.fileDate}" var="date"
+					<td class="filename">${l.filename}</td>
+					<td><f:parseDate value="${l.filedate}" var="date"
 							pattern="yyyy-MM-dd HH:mm:ss" /> <f:formatDate value="${date}"
 							pattern="yyyy-MM-dd HH:mm:ss" />
 					</td>
-					<td><a href="${l.fileSrc}" download="${l.fileName}">下载</a></td>
+					<td><a href="${l.filesrc}" download="${l.filename}">下载</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -102,7 +102,7 @@ th {
 	<jsp:include page="/static/jsp/foot.jsp"></jsp:include>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	>
+	<!-- > -->
 
 
 </body>

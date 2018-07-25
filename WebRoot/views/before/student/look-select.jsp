@@ -61,7 +61,7 @@ button:hover {
 					class="evideo selected">查看视频</button>
 		</a>
 		</li>
-		<li><a target="_window" href="/mooc/views/before/student/look-coursecontent.jsp"><button>返回</button></a>
+		<li><a target="_window" href="/mooc/StudyServlet?method=getCourseContent&courseid=${course.id}"><button>返回</button></a>
 		</li>
 	</ul>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
@@ -73,7 +73,7 @@ button:hover {
 			$(".selected").css("color","white");
 			$(this).css("background-color","#eee");
 			$(this).css("color","#55b929");
-		})
+		});
 	</script>
 </body>
 </html>

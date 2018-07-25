@@ -44,7 +44,14 @@ public class UserServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @description: 控制更新密码的事件
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月25日上午8:36:08
+	 */
 	private void updatePassword() throws IOException {
+		//pwd是新密码
 		String pwd = req.getParameter("pwd");
 		UserLoginInfo user = (UserLoginInfo) req.getSession().getAttribute(
 				"user");
@@ -57,6 +64,12 @@ public class UserServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @description: 控制查询初始密码输入框中密码是否和库中该用户密码一致
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月25日上午8:37:17
+	 */
 	private void selectPassword() throws IOException {
 		int userid = Integer.parseInt(req.getParameter("id"));
 		String pwd = req.getParameter("password");

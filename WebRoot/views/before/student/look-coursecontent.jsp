@@ -42,10 +42,10 @@ text-decoration:none;
 			<ul>
 				<li>${course.cname}</li>
 				<li class="selected">首页</li>
-				<li><form action="/mooc/views/before/student/student-task.jsp" method="post" style="display:inline-block;">
+				<li><form action="/mooc/StudyServlet?method=getTask&courseid=${course.id}" method="post" style="display:inline-block;">
 						<button class="taskbtn">作业</button>
 					</form></li>
-				<li><a href="/mooc/views/before/student/student-ziliaogl.jsp" style="color:black;">资料</a></li>
+				<li><a href="/mooc/CourseServlet?method=getCourseFile&courseid=${course.id}" style="color:black;">资料</a></li>
 				<li onclick="showdiscuss();">讨论</li>
 			</ul>
 		</div>

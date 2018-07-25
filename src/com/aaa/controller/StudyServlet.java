@@ -52,16 +52,45 @@ public class StudyServlet extends HttpServlet {
 			getCourseContent();
 		} else if (method.equals("toLookFrameset")) {
 			toLookFrameset();
-		} else if (method.equals("toLookCatalog")) {
+		}else if (method.equals("toLookCatalog")) {
 			toLookCatalog();
+		}else if (method.equals("toLookSelect")) {
+			toLookSelect();
+		}else if (method.equals("getZiliao")) {
+			getZiliao();
 		}
-		// toLookFrameset toLookSelect toLookWord toLookCatalog
+		//getZiliao
 	}
 
-	private void toLookCatalog() throws ServletException, IOException {
+	private void getZiliao() {
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
+	}
+
+	/**
+	 * @description: 框架左侧顶部的选项获取事件
+	 * @param @throws ServletException
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月24日下午5:55:36
+	 */
+	private void toLookSelect() throws ServletException, IOException {
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
+		resp.sendRedirect("views/before/student/look-select.jsp");
+//		req.getRequestDispatcher("views/before/student/look-select.jsp")
+//				.forward(req, resp);
+	}
+
+	/**
+	 * @description: 点击'查看课程内容'按钮后动态获取目录的事件（框架右侧）
+	 * @param @throws ServletException
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月24日下午5:54:52
+	 */
+	private void toLookCatalog() throws ServletException, IOException {
+		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
 		req.setAttribute("firstlist", firstlist);
 		List<List<SecondCatalog>> secondlists = new ArrayList<List<SecondCatalog>>();
@@ -75,10 +104,19 @@ public class StudyServlet extends HttpServlet {
 				.forward(req, resp);
 	}
 
+	/**
+	 * @description: 去课程内容详情页的事件
+	 * @param @throws ServletException
+	 * @param @throws IOException   
+	 * @return void 
+	 * @date 2018年7月24日下午5:54:22
+	 */
 	private void toLookFrameset() throws ServletException, IOException {
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
+
+		
 		req.getRequestDispatcher("views/before/student/look-frameset.jsp")
 				.forward(req, resp);
 	}
