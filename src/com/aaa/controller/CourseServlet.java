@@ -53,7 +53,8 @@ public class CourseServlet extends HttpServlet {
 		List<CourseFile> list = courseService.getCourseFile(courseid);
 		req.setAttribute("cid", courseid);
 		req.setAttribute("list", list);
-		req.getRequestDispatcher("/views/before/student/student-ziliaogl.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/before/student/student-ziliaogl.jsp")
+				.forward(req, resp);
 	}
 
 	/**

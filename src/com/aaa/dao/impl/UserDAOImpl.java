@@ -5,6 +5,7 @@ import java.util.List;
 import com.aaa.dao.BaseDAO;
 import com.aaa.dao.UserDAO;
 import com.aaa.entity.UserLoginInfo;
+import com.aaa.util.MD5Util;
 
 public class UserDAOImpl extends BaseDAO implements UserDAO {
 
@@ -14,7 +15,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 		int result = 0;
 		String sql = "INSERT INTO user_login_info(headImg,username,telephone,password,state) VALUES('img/person.png',?,?,?,0)";
 		String[] params = { user.getUsername(), user.getTelephone(),
-				user.getPassword() };
+				MD5Util.MD5(user.getPassword()) };
 		result = savaOrUpdate(sql, params);
 		return result;
 	}
@@ -28,7 +29,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	public UserLoginInfo selectByTelAndPwd(String tel, String pwd) {
 
 		String sql = "select id,headImg,username,telephone,password,state from user_login_info where telephone=? and password=?";
-		Object[] params = { tel, pwd };
+		Object[] params = { tel, MD5Util.MD5(pwd) };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
 		if (list.size() > 0)
 			return list.get(0);
@@ -40,14 +41,14 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 	@Override
 	public int updatePassword(int userid, String pwd) {
 		String sql = "update user_login_info set password=? where id=?";
-		Object[] params = { pwd, userid };
+		Object[] params = { MD5Util.MD5(pwd), userid };
 		return savaOrUpdate(sql, params);
 	}
 
 	@Override
 	public boolean selectPassword(int userid, String pwd) {
-		String sql = "select * from user_login_info where id=? and password=?";
-		Object[] params = { userid, pwd };
+		String sql = "select id from user_login_info where id=? and password=?";
+		Object[] params = { userid, MD5Util.MD5(pwd) };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
 		return list.size() > 0 ? true : false;
 	}

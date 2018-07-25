@@ -58,12 +58,12 @@ public interface CourseService {
 	 * @date 2018年7月20日下午5:32:01
 	 */
 	public int updateCount(int courseid);
-	
+
 	/**
 	 * @description: 获取课程文档的service层接口
 	 * @param @param courseid
-	 * @param @return   
-	 * @return List<CourseFile> 
+	 * @param @return
+	 * @return List<CourseFile>
 	 * @date 2018年7月25日上午10:06:34
 	 */
 	public List<CourseFile> getCourseFile(int courseid);

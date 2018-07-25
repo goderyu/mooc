@@ -7,10 +7,10 @@ package com.aaa.entity;
  */
 public class Basicinfo {
 	private int id;
-	private int userid;//对应user_login_info中的id
+	private int userid;// 对应user_login_info中的id
 	private String email;
 	private int sex;
-	private String card;//身份证号
+	private String card;// 身份证号
 
 	public int getId() {
 		return id;

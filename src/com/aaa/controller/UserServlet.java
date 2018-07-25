@@ -11,6 +11,7 @@ import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.UserService;
 import com.aaa.service.impl.UserServiceImpl;
 import com.aaa.util.AjaxWriter;
+import com.aaa.util.MD5Util;
 
 public class UserServlet extends HttpServlet {
 
