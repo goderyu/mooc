@@ -28,7 +28,7 @@
 						<span class="mycenter">个人中心</span>
 						<hr />
 				  </div>
-			  	  <div class="content">
+				<div class="content">
 			  		    <div> 
 				  			<span >头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
 				  			<div>
@@ -45,11 +45,25 @@
 				  		<div>
 				  			<span>手&nbsp;机&nbsp;号：</span><span class="nickname">${user.telephone}</span>
 				  		</div>
-				  		<div>
-				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">******</span>
-				  		</div>
+				  		<!-- <div>
+				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">***********</span>
+				  		</div> -->
 				  		<!-- enctype="multipart/form-data" -->
-				   <form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" onSubmit="return infocheck()" method="post" id="headPortraitForm" >
+				  		
+					<form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" onSubmit="return infocheck()" method="post" id="headPortraitForm" >
+						<div>
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<c:choose>
+								<c:when test="${basicinfo.sex eq 1}">
+									<input type="radio" value="1" name="sex" checked="checked"/>男
+									<input type="radio" value="0" name="sex"/>女
+								</c:when>
+								<c:otherwise>
+									<input type="radio" value="1" name="sex"/>男
+									<input type="radio" value="0" name="sex"  checked="checked"/>女
+								</c:otherwise>
+							</c:choose>
+				   		</div>
 				    	<div>
 				    		<span>常用邮箱：</span><input class="input" id="userEmail"  value="${basicinfo.email}" name="userEmail" placeholder="请输入邮箱"/>
 				    		<span id="userEmailinput"></span>
@@ -69,7 +83,7 @@
 		  	 </div>
 	 	
 	 	<!-- 修改密码 -->
-	 	<input class="change-2" type="submit" value="修改"/>
+	 	<input class="change-2" type="submit" value="修改密码"/>
 	 	<form action="/mooc/UserServlet?method=updatePassword" onSubmit="return pswcheck()" id="updateform" method="post">
 			<div class="update-1">
 				<div>
@@ -163,7 +177,7 @@
      				}else{
      					$("#passwordinput").html("");
      					$("#updateform").ajaxSubmit(function(data) {	
-						if(data=='true'){
+						if(data){
 							alert('密码修改成功！您需重新登录。');
 							top.location.href="/mooc/UserServlet?method=quit";
 						}

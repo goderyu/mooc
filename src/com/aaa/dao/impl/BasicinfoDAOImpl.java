@@ -26,9 +26,9 @@ public class BasicinfoDAOImpl extends BaseDAO implements BasicinfoDAO {
 
 	@Override
 	public int updateBasicinfo(Basicinfo basicinfo) {
-		String sql = "update user_basic_info set email=?,card=? where userid=?";
-		Object[] params = { basicinfo.getEmail(), basicinfo.getCard(),
-				basicinfo.getUserid() };
+		String sql = "update user_basic_info set email=?,sex=?,card=? where userid=?";
+		Object[] params = { basicinfo.getEmail(), basicinfo.getSex(),
+				basicinfo.getCard(), basicinfo.getUserid() };
 		return savaOrUpdate(sql, params);
 	}
 

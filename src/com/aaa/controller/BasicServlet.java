@@ -85,6 +85,7 @@ public class BasicServlet extends HttpServlet {
 		Basicinfo basicinfo = new Basicinfo();
 		int userid = Integer.parseInt(req.getParameter("userid"));
 		basicinfo.setEmail(req.getParameter("userEmail"));
+		basicinfo.setSex(Integer.parseInt(req.getParameter("sex")));
 		basicinfo.setCard(req.getParameter("userCard"));
 		basicinfo.setUserid(userid);
 		int result = basicinfoService.updateBasicinfo(basicinfo);
