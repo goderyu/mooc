@@ -52,8 +52,6 @@ public class StudyServlet extends HttpServlet {
 			getCourseContent();
 		} else if (method.equals("toLookFrameset")) {
 			toLookFrameset();
-		} else if (method.equals("toLookCatalog")) {
-			toLookCatalog();
 		} else if (method.equals("toLookSelect")) {
 			toLookSelect();
 		} else if (method.equals("getZiliao")) {
@@ -82,27 +80,6 @@ public class StudyServlet extends HttpServlet {
 		// .forward(req, resp);
 	}
 
-	/**
-	 * @description: 点击'查看课程内容'按钮后动态获取目录的事件（框架右侧）
-	 * @param @throws ServletException
-	 * @param @throws IOException
-	 * @return void
-	 * @date 2018年7月24日下午5:54:52
-	 */
-	private void toLookCatalog() throws ServletException, IOException {
-		int courseid = Integer.parseInt(req.getParameter("courseid"));
-		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
-		req.setAttribute("firstlist", firstlist);
-		List<List<SecondCatalog>> secondlists = new ArrayList<List<SecondCatalog>>();
-		for (int i = 0; i < firstlist.size(); i++) {
-			List<SecondCatalog> asecondlist = courseService
-					.getSecondCatalog(firstlist.get(i).getId());
-			secondlists.add(asecondlist);
-		}
-		req.setAttribute("secondlists", secondlists);
-		req.getRequestDispatcher("views/before/student/look-catalog.jsp")
-				.forward(req, resp);
-	}
 
 	/**
 	 * @description: 去课程内容详情页的事件
@@ -131,14 +108,14 @@ public class StudyServlet extends HttpServlet {
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
 		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);
-		req.setAttribute("firstlist", firstlist);
+		req.getSession().setAttribute("firstlist", firstlist);
 		List<List<SecondCatalog>> secondlists = new ArrayList<List<SecondCatalog>>();
 		for (int i = 0; i < firstlist.size(); i++) {
 			List<SecondCatalog> asecondlist = courseService
 					.getSecondCatalog(firstlist.get(i).getId());
 			secondlists.add(asecondlist);
 		}
-		req.setAttribute("secondlists", secondlists);
+		req.getSession().setAttribute("secondlists", secondlists);
 		req.getRequestDispatcher("views/before/student/look-coursecontent.jsp")
 				.forward(req, resp);
 	}

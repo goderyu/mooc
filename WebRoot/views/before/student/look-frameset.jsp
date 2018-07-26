@@ -21,9 +21,7 @@
 				<frame src="/mooc/views/before/student/look-select.jsp?course=${course}" name="ltop" scrolling="no" />
 				<frame src="/mooc/StudyServlet?method=toLookWord" name="down" />
 			</frameset>
-			<!-- /mooc/views/before/student/look-catalog.jsp -->
-			<!-- /mooc/StudyServlet?method=toLookCatalog -->
-			<frame src="/mooc/StudyServlet?method=toLookCatalog&courseid=${course.id}" name="right" scrolling="no" />
+			<frame src="/mooc/views/before/student/look-catalog.jsp" name="right" scrolling="no" />
 	</frameset>
 <body>
 </body>
