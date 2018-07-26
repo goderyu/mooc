@@ -11,7 +11,6 @@ import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.UserService;
 import com.aaa.service.impl.UserServiceImpl;
 import com.aaa.util.AjaxWriter;
-import com.aaa.util.MD5Util;
 
 public class UserServlet extends HttpServlet {
 
@@ -43,7 +42,19 @@ public class UserServlet extends HttpServlet {
 			selectPassword();
 		} else if (method.equals("updatePassword")) {
 			updatePassword();
+		} else if (method.equals("updateHeadImg")) {
+			updateHeadImg();
 		}
+	}
+
+	private void updateHeadImg() {
+		int userid = Integer.parseInt(req.getParameter("userid"));
+		String headImg = req.getParameter("headImg");
+		int result = userService.updateHeadImg(userid, headImg);
+		if(result > 0)
+			AjaxWriter.write(resp, true);
+		else
+			AjaxWriter.write(resp, false);
 	}
 
 	/**
@@ -112,9 +123,9 @@ public class UserServlet extends HttpServlet {
 		if (user != null) {
 			// 将user值传递给session对象的user属性中
 			req.getSession().setAttribute("user", user);
-			resp.getWriter().print("true");
+			AjaxWriter.write(resp, true);
 		} else {
-			resp.getWriter().print("false");
+			AjaxWriter.write(resp, false);
 		}
 	}
 }

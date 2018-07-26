@@ -29,4 +29,14 @@ public class UserServiceImpl implements UserService {
 		return userDAO.selectPassword(userid, pwd);
 	}
 
+	@Override
+	public int updateHeadImg(int userid, String headImg) {
+		return userDAO.updateHeadImg(userid, headImg);
+	}
+
+	@Override
+	public UserLoginInfo selectUserInfo(int userid) {
+		return userDAO.selectUserInfo(userid);
+	}
+
 }

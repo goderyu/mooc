@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.aaa.entity.Basicinfo;
+import com.aaa.entity.UserLoginInfo;
 import com.aaa.service.BasicinfoService;
+import com.aaa.service.UserService;
 import com.aaa.service.impl.BasicinfoServiceImpl;
+import com.aaa.service.impl.UserServiceImpl;
 import com.aaa.util.AjaxWriter;
 
 /**
@@ -24,6 +27,7 @@ public class BasicServlet extends HttpServlet {
 	private HttpServletRequest req;
 	private HttpServletResponse resp;
 	BasicinfoService basicinfoService = new BasicinfoServiceImpl();
+	UserService userService = new UserServiceImpl();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -105,6 +109,11 @@ public class BasicServlet extends HttpServlet {
 		int userid = Integer.parseInt(req.getParameter("userid"));
 		Basicinfo basicinfo = basicinfoService.getBasicinfo(userid);
 		req.setAttribute("basicinfo", basicinfo);
+		// 更新头像后获取基本信息时需要刷新session中存入的user的headImg信息
+		UserLoginInfo user = userService.selectUserInfo(userid);
+		if (user != null) {
+			req.getSession().setAttribute("user", user);
+		}
 		req.getRequestDispatcher("views/before/student/student-basicinfo.jsp")
 				.forward(req, resp);
 	}

@@ -113,7 +113,7 @@
 					"telephone" : $(".telephone").val(),
 					"password" : $(".password").val()
 				}, function(data) {
-					if (data=='true') {
+					if (data) {
 						window.location.href="/mooc/CourseServlet?method=getCourseBaseInfo";
 					} else {
 						$("#loginmsg").html("&nbsp密码错误");

@@ -31,6 +31,7 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 		String sql = "select id,headImg,username,telephone,password,state from user_login_info where telephone=? and password=?";
 		Object[] params = { tel, MD5Util.MD5(pwd) };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
+		System.out.println("tel:"+tel+", pwd:"+pwd);
 		if (list.size() > 0)
 			return list.get(0);
 		else
@@ -51,6 +52,24 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 		Object[] params = { userid, MD5Util.MD5(pwd) };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
 		return list.size() > 0 ? true : false;
+	}
+
+	@Override
+	public int updateHeadImg(int userid, String headImg) {
+		String sql = "update user_login_info set headImg=? where id=?";
+		Object[] params = { headImg, userid };
+		return savaOrUpdate(sql, params);
+	}
+
+	@Override
+	public UserLoginInfo selectUserInfo(int userid) {
+		String sql = "select id,headImg,username,telephone,password,state from user_login_info where id=?";
+		Object[] params = { userid };
+		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
+		if (list.size() > 0)
+			return list.get(0);
+		else
+			return null;
 	}
 
 }

@@ -43,4 +43,23 @@ public interface UserDAO {
 	 * @date 2018年7月24日上午10:54:53
 	 */
 	public boolean selectPassword(int userid, String pwd);
+
+	/**
+	 * @description: 更新用户头像的dao层接口
+	 * @param @param userid 用户id
+	 * @param @param headImg 头像
+	 * @param @return   
+	 * @return int 
+	 * @date 2018年7月26日上午11:20:49
+	 */
+	public int updateHeadImg(int userid, String headImg);
+	
+	/**
+	 * @description: 更新用户session时使用，解决加密冲突
+	 * @param @param userid
+	 * @param @return   
+	 * @return UserLoginInfo 
+	 * @date 2018年7月26日下午1:56:52
+	 */
+	public UserLoginInfo selectUserInfo(int userid);
 }

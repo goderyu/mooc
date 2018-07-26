@@ -29,6 +29,7 @@
 						<hr />
 				  </div>
 				<div class="content">
+				<form action="/mooc/UserServlet?method=updateHeadImg"  method="post" enctype="multipart/form-data" id="headPortraitForm" >
 			  		    <div> 
 				  			<span >头&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像：</span>
 				  			<div>
@@ -37,6 +38,7 @@
 				  			</div>
 							<div class="img"><img id="headPortraitimg" src="${user.headImg}"/></div>
 				  		</div>
+				</form>
 				  		<div>
 				  			<input name="userid" value="${user.id}" type="hidden"/>
 				  			<%-- <input name="id" value="${user.id}" type="hidden"/> --%>
@@ -45,12 +47,7 @@
 				  		<div>
 				  			<span>手&nbsp;机&nbsp;号：</span><span class="nickname">${user.telephone}</span>
 				  		</div>
-				  		<!-- <div>
-				  			<span>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span><span class="nickname">***********</span>
-				  		</div> -->
-				  		<!-- enctype="multipart/form-data" -->
-				  		
-					<form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" onSubmit="return infocheck()" method="post" id="headPortraitForm" >
+				<form action="/mooc/BasicServlet?method=updateBasicinfo&userid=${user.id}" onSubmit="return infocheck()" method="post" id="basicinfoForm" >
 						<div>
 							<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
 							<c:choose>
@@ -78,9 +75,9 @@
 				    	<div>
 				    		<input id="sub" class="button" type="submit" value="提交"/> 
 				    	</div> 
-				   </form>
-			      </div>
-		  	 </div>
+				 </form>
+			     </div>
+		  	</div>
 	 	
 	 	<!-- 修改密码 -->
 	 	<input class="change-2" type="submit" value="修改密码"/>
@@ -110,10 +107,11 @@
 
 	  	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 		<script type="text/javascript" src="js/jquery-form.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/ajaxfileupload.js"></script>
 		<script type="text/javascript">
 			$(".qxbtn").click(function(){
      			$(".update-1").hide();
-     		})
+     		});
 			/* 头像上传 */
 			$("#userHeadPortrait").change(function() {
 				//获取文件  
@@ -127,12 +125,37 @@
 					//创建读取文件的对象  
 					var reader = new FileReader();
 					//创建文件读取相关的变量  
-					var imgFile;
+					var imgFile = null;
 					//为文件读取成功设置事件  
-					reader.onload = function(e) {
+					reader.onloadend = function(e) {
 						imgFile = e.target.result;
-						$("#headPortraitimg").attr('src', imgFile);
+						// 设置img图像框，prop范围更广。src为更换的文件名
+						$("#headPortraitimg").prop("src", imgFile);
 					};
+					
+					//*****************
+					$.ajaxFileUpload({
+						url:"/mooc/FileUpload",
+						secureuri:false,
+						fileElementId:"userHeadPortrait",	//文件选择框的id属性
+						dataType:"json",
+						success: function(data,status) //相当于java中try语句块的用法
+						{
+							$.post("/mooc/UserServlet?method=updateHeadImg",{
+								headImg:"img/personage/"+data.src,
+								userid:'${user.id}'
+							},function(data){
+								if(data)
+									alert('头像更新成功！');
+								else
+									alert('头像更新失败！');
+							});
+						},
+						error: function (data,status,e)
+						{
+							$("#result").html("上传图片失败");
+						}
+					});
 					//正式读取文件  +
 					reader.readAsDataURL(file);
 				}
@@ -228,31 +251,3 @@
 		</script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
