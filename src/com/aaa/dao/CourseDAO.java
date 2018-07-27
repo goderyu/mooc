@@ -67,4 +67,24 @@ public interface CourseDAO {
 	 * @date 2018年7月25日上午10:06:34
 	 */
 	public List<CourseFile> getCourseFile(int courseid);
+
+	/**
+	 * @description: 获取章节文本信息dao层接口
+	 * @param @param catalogid 一级或二级标题id
+	 * @param @param state 判断一级还是二级的标志
+	 * @param @return 返回文本信息
+	 * @return String
+	 * @date 2018年7月26日下午5:04:00
+	 */
+	public String getFirstSecondCatalogText(int catalogid, int state);
+
+	/**
+	 * @description: 获取章节视频信息dao层接口
+	 * @param @param catalogid
+	 * @param @param state
+	 * @param @return
+	 * @return String
+	 * @date 2018年7月26日下午5:32:14
+	 */
+	public String getFirstSecondCatalogVideo(int catalogid, int state);
 }

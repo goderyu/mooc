@@ -31,7 +31,6 @@ public class UserDAOImpl extends BaseDAO implements UserDAO {
 		String sql = "select id,headImg,username,telephone,password,state from user_login_info where telephone=? and password=?";
 		Object[] params = { tel, MD5Util.MD5(pwd) };
 		List<UserLoginInfo> list = search(sql, UserLoginInfo.class, params);
-		System.out.println("tel:"+tel+", pwd:"+pwd);
 		if (list.size() > 0)
 			return list.get(0);
 		else

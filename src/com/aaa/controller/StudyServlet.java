@@ -80,7 +80,6 @@ public class StudyServlet extends HttpServlet {
 		// .forward(req, resp);
 	}
 
-
 	/**
 	 * @description: 去课程内容详情页的事件
 	 * @param @throws ServletException
@@ -105,6 +104,8 @@ public class StudyServlet extends HttpServlet {
 	 */
 	private void getCourseContent() throws ServletException, IOException {
 		int courseid = Integer.parseInt(req.getParameter("courseid"));
+		// 在获取课程内容事件中将课程id存入session方便各个页面的调用
+		req.getSession().setAttribute("courseid", courseid);
 		CourseBase courseBase = courseService.getCourseBaseById(courseid);
 		req.setAttribute("course", courseBase);
 		List<FirstCatalog> firstlist = courseService.getFirstCatalog(courseid);

@@ -53,4 +53,14 @@ public class CourseServiceImpl implements CourseService {
 		return courseDAO.getCourseFile(courseid);
 	}
 
+	@Override
+	public String getFirstSecondCatalogText(int catalogid, int state) {
+		return courseDAO.getFirstSecondCatalogText(catalogid, state);
+	}
+
+	@Override
+	public String getFirstSecondCatalogVideo(int catalogid, int state) {
+		return courseDAO.getFirstSecondCatalogVideo(catalogid, state);
+	}
+
 }

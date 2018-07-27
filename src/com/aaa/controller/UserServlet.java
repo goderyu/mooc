@@ -51,7 +51,7 @@ public class UserServlet extends HttpServlet {
 		int userid = Integer.parseInt(req.getParameter("userid"));
 		String headImg = req.getParameter("headImg");
 		int result = userService.updateHeadImg(userid, headImg);
-		if(result > 0)
+		if (result > 0)
 			AjaxWriter.write(resp, true);
 		else
 			AjaxWriter.write(resp, false);

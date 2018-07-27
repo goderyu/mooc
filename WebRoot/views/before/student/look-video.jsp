@@ -41,12 +41,23 @@ body {
 
 </head>
 <body>
-	<div class="preview">
+<%-- 	<div class="preview">
 		<embed src="${map.videos}" id="videow"style="text-align: center;"
 			allowscriptaccess='always' allowfullscreen='true' wmode='opaque'
 			width='1000' height='640'>
 
 		</embed>
+	</div> --%>
+	<div>
+<%-- 	<video src="${map.videos}" controls="controls">
+	test
+	</video> --%>
+	<video width="1024" height="576" controls="controls" >
+    <source src="${map.videos}" type="video/mp4" />
+    <object data="${map.videos}" width="1024" height="576" >
+    	<embed src="${map.videos}" width="1024" height="576" />
+    </object>
+	</video>
 	</div>
 	<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 	<script type="text/javascript">

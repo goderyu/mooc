@@ -38,7 +38,8 @@
 </head>
 <body>
 		<div>
-			<div id="editor">
+			<div id="editor" style="border:1px solid #0f0;height:98%;">
+				<!-- map,存储键值对 -->
 				<p>${map.content}</p>
 			</div>
 		</div>

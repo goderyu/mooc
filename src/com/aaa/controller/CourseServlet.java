@@ -1,7 +1,9 @@
 package com.aaa.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +47,50 @@ public class CourseServlet extends HttpServlet {
 			getSecondCatalogInfo();
 		} else if (method.equals("getCourseFile")) {
 			getCourseFile();
+		} else if (method.equals("updateLtopContent")) {
+			updateLtopContent();
+		} else if (method.equals("getText")) {
+			getText();
+		} else if (method.equals("getVideo")) {
+			getVideo();
 		}
+		// getText getVideo
+	}
+
+	private void getVideo() throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		int state = Integer.parseInt(req.getParameter("state"));
+		int catalogid = Integer.parseInt(req.getParameter("catalogid"));
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		String video = courseService.getFirstSecondCatalogVideo(catalogid,
+				state);
+		System.out.println("CourseServlet的getVideo的video="+video);
+		map.put("videos", video);
+		req.setAttribute("map", map);
+		req.getRequestDispatcher("/views/before/student/look-video.jsp")
+				.forward(req, resp);
+	}
+
+	private void getText() throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		int state = Integer.parseInt(req.getParameter("state"));
+		int catalogid = Integer.parseInt(req.getParameter("catalogid"));
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		String text = courseService.getFirstSecondCatalogText(catalogid, state);
+		map.put("content", text);
+		req.setAttribute("map", map);
+		req.getRequestDispatcher("/views/before/student/look-word.jsp")
+				.forward(req, resp);
+	}
+
+	private void updateLtopContent() throws ServletException, IOException {
+		resp.setCharacterEncoding("utf-8");
+		int state = Integer.parseInt(req.getParameter("state"));
+		int catalogid = Integer.parseInt(req.getParameter("catalogid"));
+		req.setAttribute("state", state);
+		req.setAttribute("catalogid", catalogid);
+		req.getRequestDispatcher("/views/before/student/look-select.jsp")
+				.forward(req, resp);
 	}
 
 	private void getCourseFile() throws ServletException, IOException {

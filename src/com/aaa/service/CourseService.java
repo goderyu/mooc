@@ -67,4 +67,23 @@ public interface CourseService {
 	 * @date 2018年7月25日上午10:06:34
 	 */
 	public List<CourseFile> getCourseFile(int courseid);
+
+	/**
+	 * @description: 获取课程一二级标题对应的text内容
+	 * @param @param catalogid
+	 * @param @return
+	 * @return String
+	 * @date 2018年7月26日下午4:58:22
+	 */
+	public String getFirstSecondCatalogText(int catalogid, int state);
+
+	/**
+	 * @description: 获取课程一二级标题对应的video内容
+	 * @param @param catalogid
+	 * @param @param state
+	 * @param @return
+	 * @return String
+	 * @date 2018年7月26日下午5:31:26
+	 */
+	public String getFirstSecondCatalogVideo(int catalogid, int state);
 }
