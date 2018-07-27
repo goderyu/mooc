@@ -64,7 +64,6 @@ public class CourseServlet extends HttpServlet {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		String video = courseService.getFirstSecondCatalogVideo(catalogid,
 				state);
-		System.out.println("CourseServlet的getVideo的video="+video);
 		map.put("videos", video);
 		req.setAttribute("map", map);
 		req.getRequestDispatcher("/views/before/student/look-video.jsp")

@@ -106,12 +106,10 @@ public class CourseDAOImpl extends BaseDAO implements CourseDAO {
 		if (state == 1) {
 			sql = "select cvideo from coursefirstcatalog where id=?";
 			List<FirstCatalog> list = search(sql, FirstCatalog.class, params);
-			System.out.println("list.get(0).getCvideo()="+list.get(0).getCvideo());
 			return list.get(0).getCvideo();
 		} else if (state == 2) {
 			sql = "select subcvideo from coursesecondcatalog where id=?";
 			List<SecondCatalog> list = search(sql, SecondCatalog.class, params);
-			System.out.println("list.get(0).getSubcvideo()="+list.get(0).getSubcvideo());
 			return list.get(0).getSubcvideo();
 		} else
 			return null;
