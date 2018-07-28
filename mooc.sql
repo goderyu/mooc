@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2018-07-25 17:14:31
+Date: 2018-07-28 08:31:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -83,9 +83,9 @@ CREATE TABLE `coursebase` (
 -- ----------------------------
 -- Records of coursebase
 -- ----------------------------
-INSERT INTO `coursebase` VALUES ('1', '组成原理', '本课程名为“魅力语言学”，实为语言研究入门，旨在为学生在大学阶段学习语言、研究语言打下初步的基础。具体而言，通过本课程的学习，学生能够了解语言学的基础知识（基本概念、基础理论）；对英语语言学产生兴趣；培养语言意识（对语言本身和语言使用的敏感性）；提高英语语言运用能力。本门课程主要涉及语言的起源、语言的本质特征、语音学、词汇学、语法学、语义学、语用学、语言的变体、标点符号等方面的基本知识和主要概念。通过一些并非完全学术的问题，引出一些语言现象，结合这些现象探讨语言的本质、规律和语言的使用。 ', 'img/course/zuchengyuanli.jpg', '2062', '计算机入门课', '1', '49');
+INSERT INTO `coursebase` VALUES ('1', '组成原理', '本课程名为“魅力语言学”，实为语言研究入门，旨在为学生在大学阶段学习语言、研究语言打下初步的基础。具体而言，通过本课程的学习，学生能够了解语言学的基础知识（基本概念、基础理论）；对英语语言学产生兴趣；培养语言意识（对语言本身和语言使用的敏感性）；提高英语语言运用能力。本门课程主要涉及语言的起源、语言的本质特征、语音学、词汇学、语法学、语义学、语用学、语言的变体、标点符号等方面的基本知识和主要概念。通过一些并非完全学术的问题，引出一些语言现象，结合这些现象探讨语言的本质、规律和语言的使用。 ', 'img/course/zuchengyuanli.jpg', '2088', '计算机入门课', '1', '49');
 INSERT INTO `coursebase` VALUES ('2', 'C语言设计', 'C语言是结构化程序设计语言中的优秀代表，多年来始终称雄程序语言排行榜的前三位。在这门课程中，我们将学到C语言程序的三种基本结构、模块化程序设计思想和实现手段以及C语言丰富的数据类型。通过这些知识的学习和编程实践，同学们可以掌握程序设计的基本方法；培养计算思维能力和利用计算机来分析问题、解决问题的能力。多阅读程序、多编程和上机调试程序，就能学好C语言程序设计。', 'img/course/cyuyan.jpg', '75', '计算机入门课', '2', '13');
-INSERT INTO `coursebase` VALUES ('3', 'Java面向对象程序设计', '鼠标连接梦想，键盘写出辉煌', 'img/course/javacourse.jpg', '115', '计算机基础课', '1', '8');
+INSERT INTO `coursebase` VALUES ('3', 'Java面向对象程序设计', '鼠标连接梦想，键盘写出辉煌', 'img/course/javacourse.jpg', '116', '计算机基础课', '1', '8');
 
 -- ----------------------------
 -- Table structure for `coursefirstcatalog`
@@ -111,9 +111,9 @@ INSERT INTO `coursefirstcatalog` VALUES ('27', '1', '数据的表示、运算与
 INSERT INTO `coursefirstcatalog` VALUES ('28', '1', '新的章节', null, null, '2');
 INSERT INTO `coursefirstcatalog` VALUES ('29', '3', '第一章目录', '<p></p><p>好几开收到货就看上山东矿机拉司机电话框架杀到了卡级上大号</p><p><img src=\"/mooc/static/img/course/c4a4e88e-3311-4c60-8f5f-ec5f641b71fe.png\" style=\"max-width: 100%; width: 326px; height: 238px;\"></p>', 'video/e70a780d-aa69-4fc9-bccc-17c1fe0de747.mp4', '1');
 INSERT INTO `coursefirstcatalog` VALUES ('30', '3', '新的章节', null, null, '2');
-INSERT INTO `coursefirstcatalog` VALUES ('31', '2', 'C语言概述', null, null, '0');
-INSERT INTO `coursefirstcatalog` VALUES ('32', '2', '程序的灵魂-算法', null, null, '1');
-INSERT INTO `coursefirstcatalog` VALUES ('33', '2', '数据类型、运算符与表达式', null, null, '2');
+INSERT INTO `coursefirstcatalog` VALUES ('31', '2', 'C语言概述', '<p></p><p>C语言哈哈哈哈哈哈哈哈哈哈哈哈好！</p><p></p>', null, '0');
+INSERT INTO `coursefirstcatalog` VALUES ('32', '2', '程序的灵魂-算法', '<p></p><p>C语言算法哈哈哈哈哈哈哈哈哈哈哈哈好！</p><p></p>', null, '1');
+INSERT INTO `coursefirstcatalog` VALUES ('33', '2', '数据类型、运算符与表达式', '<p></p><p>数据类型、运算符与表达式哈哈哈哈哈哈哈哈哈哈哈哈好！</p><p></p>', null, '2');
 
 -- ----------------------------
 -- Table structure for `coursesecondcatalog`
@@ -141,12 +141,12 @@ INSERT INTO `coursesecondcatalog` VALUES ('4', '26', '新的子章节', null, nu
 INSERT INTO `coursesecondcatalog` VALUES ('5', '28', '新的子章节', null, null, '0');
 INSERT INTO `coursesecondcatalog` VALUES ('6', '29', '新的子章节大沙地', null, null, '0');
 INSERT INTO `coursesecondcatalog` VALUES ('7', '29', '新的子章节', null, null, '1');
-INSERT INTO `coursesecondcatalog` VALUES ('8', '31', 'C语言的发展过程', null, null, '0');
-INSERT INTO `coursesecondcatalog` VALUES ('9', '31', 'C语言的特点', null, null, '1');
-INSERT INTO `coursesecondcatalog` VALUES ('10', '32', '简单算法举例', null, null, '0');
-INSERT INTO `coursesecondcatalog` VALUES ('11', '32', '算法的特性', null, null, '1');
-INSERT INTO `coursesecondcatalog` VALUES ('12', '33', '常量与变量', null, null, '0');
-INSERT INTO `coursesecondcatalog` VALUES ('13', '33', '整型数据', null, null, '1');
+INSERT INTO `coursesecondcatalog` VALUES ('8', '31', 'C语言的发展过程', '<p>C语言发展过程</p>', 'video/test.mp4', '0');
+INSERT INTO `coursesecondcatalog` VALUES ('9', '31', 'C语言的特点', '<p>C语言的特点有很多，巴拉巴拉...</p>', null, '1');
+INSERT INTO `coursesecondcatalog` VALUES ('10', '32', '简单算法举例', '<p>简单算法举例：</p><p>巴拉巴拉...</p>', null, '0');
+INSERT INTO `coursesecondcatalog` VALUES ('11', '32', '算法的特性', '<p>算法的特性：</p><p>有效解决数学问题，巴拉巴拉...</p>', null, '1');
+INSERT INTO `coursesecondcatalog` VALUES ('12', '33', '常量与变量', '<p>常量与变量：</p><p>常量如1,2,3,；变量如a，b，c。巴拉巴拉...</p>', null, '0');
+INSERT INTO `coursesecondcatalog` VALUES ('13', '33', '整型数据', '<p>整型数据：</p><p>是个整数。又分短整长整，int，short，long 等等。巴拉巴拉...</p>', null, '1');
 
 -- ----------------------------
 -- Table structure for `dept`
@@ -381,7 +381,7 @@ CREATE TABLE `student_course` (
   KEY `courseid__` (`courseid`),
   CONSTRAINT `courseid__` FOREIGN KEY (`courseid`) REFERENCES `coursebase` (`id`) ON DELETE CASCADE,
   CONSTRAINT `userid_` FOREIGN KEY (`userid`) REFERENCES `user_login_info` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=121 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of student_course
@@ -630,7 +630,7 @@ CREATE TABLE `user_login_info` (
 -- ----------------------------
 -- Records of user_login_info
 -- ----------------------------
-INSERT INTO `user_login_info` VALUES ('1', 'img/personage/goderyu.jpg', 'goderyu', '18838003830', 'CFCD208495D565EF66E7DFF9F98764DA', '0');
+INSERT INTO `user_login_info` VALUES ('1', 'img/personage/5775e93d-514c-4229-8539-297b5c3887ea.jpg', 'goderyu', '18838003830', 'CFCD208495D565EF66E7DFF9F98764DA', '0');
 INSERT INTO `user_login_info` VALUES ('11', 'img/person.png', 'aaaaa', '13027520104', '0B4E7A0E5FE84AD35FB5F95B9CEEAC79', '1');
 INSERT INTO `user_login_info` VALUES ('17', 'img/personage/105bb326-eb67-4bc2-a3e8-5c2fb05a2f88.jpg', '杨学颖', '13027520121', 'E10ADC3949BA59ABBE56E057F20F883E', '1');
 INSERT INTO `user_login_info` VALUES ('18', 'img/person.png', 'sdcasdsad', '13027520100', 'E10ADC3949BA59ABBE56E057F20F883E', '0');
